@@ -1,0 +1,16 @@
+/*Element with class selector = selector.class*/
+p.big{
+	font-size: 20px;
+}
+
+/*Child selector*/
+article > p{ /*every p that is a direct part of article element*/
+	color:blue;
+}
+
+/*Descendant Selector*/
+article p{ /*every p that is not a direct part of article element
+for eg: article > div > p (p is part of div which is part of article)*/
+	color:blue;
+}
+

@@ -1,0 +1,8 @@
+/* This is a single-line comment */
+p{ 
+	/*declarations*/
+	color: blue; /*property: value*/
+	font-size: 20px;
+	width: 200px;
+
+}
