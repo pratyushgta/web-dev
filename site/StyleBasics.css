@@ -14,3 +14,8 @@ for eg: article > div > p (p is part of div which is part of article)*/
 	color:blue;
 }
 
+
+/*Pseduo Class selector*/ /*For example: when we want styling of element to change if we hover the mouse over it*/
+ selector:pseudo-class{
+ 	
+ }
