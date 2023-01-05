@@ -1,16 +1,99 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<script src="js/script2.js"></script>
-	<script>
-		console.log(x);
-	</script>
-</head>
-<body>
-	<h1>JS File Two</h1>
-</body>
-<script>
-		console.log("HELLOOOOOOO BOI");
-	</script>
-</html>
+<html>
+  <head>
+    <title>My Resume</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1, h2, h3 {
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h2, h3 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1em;
+      }
+      ul {
+        font-size: 1em;
+        list-style-type: square;
+      }
+      .personal-info {
+        display: flex;
+        justify-content: space-between;
+      }
+      .personal-info p {
+        margin: 0;
+      }
+      .education, .experience {
+        margin: 20px 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      .left-pane {
+        width: 20%;
+        background-color: blue;
+        float: left;
+        height: 100%;
+      }
+      .right-pane {
+        width: 80%;
+        float: right;
+      }
+      .image-container {
+        width: 100%;
+        text-align: center;
+      }
+      .image-container img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+      }
+      .personal-details {
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left-pane">
+      <div class="image-container">
+        <img src="image.jpg" alt="Profile Picture">
+      </div>
+      <div class="personal-details">
+        <p>John Doe</p>
+        <p>555-555-1212</p>
+        <p>john.doe@example.com</p>
+      </div>
+    </div>
+    <div class="right-pane">
+      <h1>My Resume</h1>
+      <h2>Personal Information</h2>
+      <div class="personal-info">
+        <p>Name: John Doe</p>
+        <p>Email: john.doe@example.com</p>
+        <p>Phone: 555-555-1212</p>
+      </div>
+      <h2>Qualifications</h2>
+      <table>
+        <tr>
+          <th>Degree</th>
+          <th>University</th>
+          <th>Year</th>
+        </tr>
+        <tr>
+          <
