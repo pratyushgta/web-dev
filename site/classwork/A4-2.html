@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>📄Resume</title>
+    <link rel="stylesheet" href="A4.css">
+    <style>
+        /*Q2 PART 1: Text styling*/
+        .content_box {
+            background-color: white;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 50px;
+            padding: 0px 30px 0px 30px;
+            /*top right bottom left*/
+            overflow: auto;
+
+        }
+
+        .content {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #section1 img {
+            width: 128px;
+            height: 128px;
+            float: right;
+        }
+
+
+        /*Q2 PART 2: List styling*/
+        ul {
+            list-style: circle;
+            line-height: 25px;
+        }
+
+        ul li:nth-child(odd) {
+            background-color: lightgrey;
+        }
+
+        ol {
+            list-style: georgian;
+            line-height: 30px;
+        }
+
+        ol li:nth-child(even):hover {
+            background-color: teal;
+            color: antiquewhite;
+        }
+
+        /*Q2 PART 3: Table styling*/
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 3px;
+            border-style: solid;
+            border-color: darkcyan;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px;
+            border-style: solid;
+        }
+
+        th {
+            background-color: lightcyan;
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+
+        td:not(:first-child) {
+            text-align: center;
+        }
+
+        #section4 td:first-child {
+            background-color: lightyellow;
+        }
+
+        #section3 caption {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--HEADER-->
+    <header id="section0">
+        <div class="logo">
+            <a href="A4-2.html"><img src="applepie.png" alt="deeznuts"></a>
+        </div>
+        <h1>ApplePie</h1>
+        <nav>
+            <div>
+                <a href="A4-1_External.html">Homie</a>
+                <a href="A4-2.html">Résumé</a>
+                <a href="A2-3.html">Contact</a>
+                <a href="A3-2_Login.html">Register</a>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!--Introduction-->
+    <div class="content_box">
+        <div class="content">
+            <div id="section1">
+                <h1>Pratyush Kumar<img src="NMIMS_logo.png" alt="NMIMS logo"></h1>
+                <p>MBA Tech Computer Engineering</p>
+                <p>📧 pratyush.kumar@hotmail.com</p>
+                <p>📞 9137897309</p>
+                <hr>
+            </div>
+
+            <section id="section2">
+                <h2><u>Objective</u></h2>
+                <p>To use my exceptional procrastination skills to put off completing tasks until the very last minute,
+                    thereby maximizing my stress levels and performance.</p>
+            </section>
+
+            <!--Education-->
+            <section id="section3">
+                <h2><u>Education</u></h2>
+                <table>
+                    <caption><i>[As of 2077]</i></caption>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institute</th>
+                        <th>Board/University</th>
+                        <th>CGPA/Percentage</th>
+                        <th>Year</th>
+                    </tr>
+                    <tr>
+                        <td>MBA Tech</td>
+                        <td>Mukesh Patel School of Technology Management & Engineering</td>
+                        <td>NMIMS University</td>
+                        <td>3.74</td>
+                        <td>Currently Pursuing</td>
+                    </tr>
+                    <tr>
+                        <td>XII</td>
+                        <td rowspan="2">Lilavatibai Podar High School</td>
+                        <td>ISC</td>
+                        <td>95%</td>
+                        <td>2019-21</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>ICSE</td>
+                        <td>90%</td>
+                        <td>2018-19</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!--Tech Skills-->
+            <section id="section4">
+                <h2><u>Technical Skills</u></h2>
+                <table>
+                    <tr>
+                        <th>Domain</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr>
+                        <td>Languages</td>
+                        <td>Java, C++, Python</td>
+                    </tr>
+                    <tr>
+                        <td>Web Designing</td>
+                        <td>HTML, CSS</td>
+                    </tr>
+                    <tr>
+                        <td>Software</td>
+                        <td>Notepad, MS Paint, Discord</td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>MySQL</td>
+                    </tr>
+                    <tr>
+                        <td>Analytics</td>
+                        <td>R language, Weka</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Systems</td>
+                        <td>Windows, Linux</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!--Projects-->
+            <section id="section5">
+                <h2><u>Key Projects</u></h2>
+                <table>
+                    <tr>
+                        <th>Project Title</th>
+                        <th>Duration</th>
+                        <th>Platform Used</th>
+                        <th>Brief Description</th>
+                    </tr>
+                    <tr>
+                        <td>Deer hunter</td>
+                        <td>2 years</td>
+                        <td>Safari Browser</td>
+                        <td>Hunted deers, and fought Russian bears in the middle of Sahara desert</td>
+                    </tr>
+                    <tr>
+                        <td>Cow Management System</td>
+                        <td>1 year</td>
+                        <td>MySQL</td>
+                        <td>Made an efficient a cow monitoring system that helps farmers record and track livestock,
+                            from birth to sale and everything in between</td>
+                    </tr>
+                    <tr>
+                        <td>Secret Agent Training</td>
+                        <td>3 months</td>
+                        <td>James Bond spy kit</td>
+                        <td>Spoke different languages, cracked codes and infiltrated enemy's territories. It was a real
+                            test of spy skills and ability to wear sunglasses indoors without looking ridiculous</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!--Certifications-->
+            <section id="section6">
+                <h2><u>Certifications</u></h2>
+                <ul>
+                    <li><b>Certified Oxy-con.</b> Successfully 5,480,320 liters of oxygen to carbon dioxide until now.
+                    </li>
+                    <li><b>Certified Snack Connoisseur from The Munchies Institute.</b> Certified in the art of
+                        snacking.</li>
+                    <li><b>Certified Zombie Response Coordinator.</b> This certification teaches individuals how to
+                        prepare for and respond to a zombie outbreak.</li>
+                    <li><b>Certified Professional of Inactivation.</b> This certification is offered by the Association
+                        for the Control of Auxiliary-Transmission Agents (ACATA) and tests individuals on their
+                        knowledge of inactivating pathogens, such as viruses and bacteria, in the lab setting.</li>
+                </ul>
+            </section>
+
+            <!--Work-->
+            <section id="section7">
+                <h2><u>Work Experience</u></h2>
+                <ol>
+                    <li>Responsible for delaying important tasks until the last possible moment and then completing them
+                        under pressure. I excelled at multitasking and thrive in a fast-paced environment as the Chief
+                        Procrastination Officer at The Last Minute Company</li>
+                    <li>Chief Napping Officer at Sleepy Owl: Led a team of 6 trained potatobags for creating a more
+                        relaxed and comfortable work environment</li>
+                    <li>Worked at The Evil Genius Corp. for 2 years as a Minion. I was responsible for carrying out
+                        nefarious tasks, such as building death rays and digging underground lairs. I was also in charge
+                        of taking care of the boss's pet shark</li>
+                </ol>
+            </section>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <p>This took ages. Crafted by Pratyush. Copyright © 1969
+            <a href="#section0" title="To the top &amp; beyond!">Back to top ^</a>
+        </p>
+    </footer>
+</body>
+
+</html>
