@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf8">
-    <title>⬆️ Average Marks</title>
+    <meta charset="utf-8">
+    <title>📊 Average Marks</title>
     <style>
         body {
             background-color: gray;
@@ -19,11 +19,15 @@
             margin-top: 2%;
         }
 
-    
-        table, th, td{
+
+        table,
+        th,
+        td {
             border: 1px solid black;
         }
-        th,td{
+
+        th,
+        td {
             text-align: left;
         }
     </style>
@@ -35,51 +39,69 @@
 
 
     <div id="content" style="font-family:Product Sans">
-        <table style="width: 50%;">
+        <table style="width: 50%;" id="grade_table">
             <tr>
                 <th style="width: 80%;">Student Name</th>
                 <th>Student Marks</th>
             </tr>
             <tr>
                 <td>David</td>
-                <td><input id="m1" type="text"><br></td>
+                <td><input id="x1" type="text"><br></td>
             </tr>
             <tr>
                 <td>Vinoth</td>
-                <td><input id="m2" type="text"><br></td>
+                <td><input id="x2" type="text"><br></td>
             </tr>
             <tr>
                 <td>Divya</td>
-                <td><input id="m3" type="text"><br></td>
+                <td><input id="x3" type="text"><br></td>
             </tr>
             <tr>
                 <td>Ishitha</td>
-                <td><input id="m4" type="text"><br></td>
+                <td><input id="x4" type="text"><br></td>
             </tr>
             <tr>
                 <td>Thomas</td>
-                <td><input id="m5" type="text"><br></td>
+                <td><input id="x5" type="text"><br></td>
             </tr>
         </table>
         <hr>
+
+        <p>
+            Push the <span><button onclick="compute();">🪄 magical button</button></span> to see the grades unfold
+
+        </p>
 
         <p id="output"></p>
     </div>
 
     <script>
         function compute() {
-            var a = document.getElementById("a").value;
-            const arr = a.split(" ");
 
-            if (arr.length > 5) {
-                window.alert("Eh too many numbers, mate");
-            } else {
-                var max = parseInt(arr[0]);
-                for (var i = 0; i < arr.length; i++) {
-                    if (parseInt(arr[i]) > max)
-                        max = parseInt(arr[i]);
-                }
-                window.alert("Largest number is: " + max);
+            let table = document.getElementById("grade_table");
+            var headerRow = table.rows[0]; //extract 1st row
+            var headerCell = headerRow.insertCell(-1); //insert new column
+            headerCell.innerHTML = "<b>Grades</b>"; //add column name
+
+            for (var i = 0; i < 5; i++) {
+                var stud_id = "x" + ((i + 1).toString());
+                var avg = parseFloat(document.getElementById(stud_id).value);
+                var grade = "";
+                if (avg < 60)
+                    grade = "F";
+                else if (avg >= 60 && avg < 70)
+                    grade = "D"
+                else if (avg >= 70 && avg < 80)
+                    grade = "C"
+                else if (avg >= 80 && avg < 90)
+                    grade = "B"
+                else if (avg >= 90 && avg <= 100)
+                    grade = "A"
+                else
+                    grade = "Invalid"
+
+                var newCell = table.rows[i + 1].insertCell(-1);
+                newCell.innerHTML = grade;
             }
         }
     </script>

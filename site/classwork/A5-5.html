@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf8">
-    <title>⬆️ Largest</title>
+    <meta charset="utf-8">
+    <title>💯 Largest</title>
     <style>
         body {
             background-color: gray;
@@ -36,7 +36,7 @@
         <p>
             Enter 5 space separated integers:
             <input id="a" type="text"><br>
-            <button onclick="calculate();">Just do it</button>
+            <button onclick="calculate();">You can do it</button>
         </p>
 
         <hr>
@@ -48,10 +48,8 @@
         function calculate() {
             var a = document.getElementById("a").value;
             const arr = a.split(" ");
-            //var answer = "";
 
             if (arr.length > 5) {
-                //answer = "<h4>Eh too many numbers, mate</h4>";
                 window.alert("Eh too many numbers, mate");
             } else {
                 var max = parseInt(arr[0]);
@@ -59,15 +57,8 @@
                     if (parseInt(arr[i]) > max)
                         max = parseInt(arr[i]);
                 }
-                //answer = "<h4>Largest number is: " + max + "</h4>";
                 window.alert("Largest number is: " + max);
             }
-
-            //answer = "<h4>Reverse: " + output + "</h4>";
-
-            document
-                .getElementById("output")
-                .innerHTML = answer; //display 
         }
     </script>
 </body>

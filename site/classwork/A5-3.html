@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf8">
+    <meta charset="utf-8">
     <title>◀️ Reverse</title>
     <style>
         body {
@@ -51,7 +51,7 @@
             var rev = 0;
             var check_neg = false; //to check if input is -ve
 
-            if(num<0){
+            if (num < 0) {
                 check_neg = true;
                 num = -num;
             }
@@ -63,6 +63,7 @@
             }
 
             result = check_neg ? -rev : rev;
+
             var answer = "<h4>Reverse: " + result + "</h4>";
 
             document
