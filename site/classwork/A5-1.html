@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf8">
+    <title>△ Area</title>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Area of a triangle</h1>
+    <hr>
+
+
+    <div id="content" style="font-family:Product Sans">
+        <h4>Input data:</h4>
+        <p>
+            Side 1:<input id="a" type="text">
+            Side 2:<input id="b" type="text">
+            Side 3:<input id="c" type="text"><br>
+            <button onclick="calculate();">Calculate!</button>
+        </p>
+
+        <hr>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+
+            var s = (a + b + c) / 2;
+            var area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+            var answer = "<h4>Area is: " + area+"</h4>";
+
+            document
+                .getElementById("output")
+                //.textContent = display_answer;
+                .innerHTML = answer; //display 
+        }
+    </script>
+</body>
+
+</html>

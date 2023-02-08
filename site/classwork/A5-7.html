@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf8">
+    <title>🌟 Star Pattern</title>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Twinkle Twirls</h1>
+    <hr>
+
+
+    <div id="content">
+
+        <p style="font-family: Product Sans;">
+            Press the button to launch nuke:
+        </p>
+        <button onclick="print_pattern();">Just do it</button>
+
+        <hr>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function print_pattern() {
+            pattern = "";
+            console_pattern = ""; //for printing pattern in console
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < i + 1; j++) {
+                    pattern += "* ";
+                    console_pattern += "* ";
+                }
+                pattern += "<br>";
+                console_pattern += "\n";
+            }
+
+            console.log(console_pattern);
+
+            document
+                .getElementById("output")
+                .innerHTML = pattern; //display 
+        }
+    </script>
+</body>
+
+</html>

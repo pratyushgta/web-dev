@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf8">
+    <title>⬆️ Capitalize</title>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        p input {
+            width: 500px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Capital-Eyed the Word</h1>
+    <hr>
+
+
+    <div id="content" style="font-family:Product Sans">
+
+        <p>
+            Enter a sentence:
+            <input id="a" type="text"><br>
+            <button onclick="calculate();">Just do it</button>
+        </p>
+
+        <hr>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var a = document.getElementById("a").value;
+
+            let words = a.split(" ");
+            //let capitalize = [];
+            let capitalize = "";
+
+            for (let i = 0; i < words.length; i++) {
+                let word = words[i];
+                //capitalize.push(word[0].toUpperCase() + word[i].substr(1));
+                capitalize += word[0].toUpperCase() + words[i].substring(1) + " ";
+            }
+
+            var answer = "<h4>Reverse: " + capitalize + "</h4>";
+
+            document
+                .getElementById("output")
+                .innerHTML = answer; //display 
+        }
+    </script>
+</body>
+
+</html>

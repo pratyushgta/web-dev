@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf8">
+    <title>⬆️ Average Marks</title>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+    
+        table, th, td{
+            border: 1px solid black;
+        }
+        th,td{
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Grade-O-Rama</h1>
+    <hr>
+
+
+    <div id="content" style="font-family:Product Sans">
+        <table style="width: 50%;">
+            <tr>
+                <th style="width: 80%;">Student Name</th>
+                <th>Student Marks</th>
+            </tr>
+            <tr>
+                <td>David</td>
+                <td><input id="m1" type="text"><br></td>
+            </tr>
+            <tr>
+                <td>Vinoth</td>
+                <td><input id="m2" type="text"><br></td>
+            </tr>
+            <tr>
+                <td>Divya</td>
+                <td><input id="m3" type="text"><br></td>
+            </tr>
+            <tr>
+                <td>Ishitha</td>
+                <td><input id="m4" type="text"><br></td>
+            </tr>
+            <tr>
+                <td>Thomas</td>
+                <td><input id="m5" type="text"><br></td>
+            </tr>
+        </table>
+        <hr>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function compute() {
+            var a = document.getElementById("a").value;
+            const arr = a.split(" ");
+
+            if (arr.length > 5) {
+                window.alert("Eh too many numbers, mate");
+            } else {
+                var max = parseInt(arr[0]);
+                for (var i = 0; i < arr.length; i++) {
+                    if (parseInt(arr[i]) > max)
+                        max = parseInt(arr[i]);
+                }
+                window.alert("Largest number is: " + max);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf8">
+    <title>◀️ Reverse</title>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        p input {
+            width: 50px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Re-number a verse</h1>
+    <hr>
+
+
+    <div id="content" style="font-family:Product Sans">
+
+        <p>
+            Enter a number to reverse:
+            <input id="a" type="text"><br>
+            <button onclick="calculate();">Do it!</button>
+        </p>
+
+        <hr>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var a = parseInt(document.getElementById("a").value);
+            var num = a;
+            var rev = 0;
+            var check_neg = false; //to check if input is -ve
+
+            if(num<0){
+                check_neg = true;
+                num = -num;
+            }
+
+            while (num > 0) {
+                let rem = num % 10;
+                rev = rev * 10 + rem;
+                num = parseInt(num / 10);
+            }
+
+            result = check_neg ? -rev : rev;
+            var answer = "<h4>Reverse: " + result + "</h4>";
+
+            document
+                .getElementById("output")
+                .innerHTML = answer; //display 
+        }
+    </script>
+</body>
+
+</html>
