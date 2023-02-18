@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>📝Registration Form</title>
+    <link rel="stylesheet" href="A6.css">
+    <style>
+        .content {
+            background-color: teal;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+
+        .content h1,
+        h2,
+        p,
+        label,
+        span {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .content form {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .innerContent {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    </style>
+</head>
+
+<body link="darkcyan" alink="black" vlink="darkcyan">
+
+    <!--HEADER-->
+    <header id="section0">
+        <table>
+            <tr>
+                <td style="width: 40%; text-align: left;">
+                    <a href="A3-2_Login.html" title="Previous Page">&lt; Sign Up!</a>
+                </td>
+                <td style="width: 60%; text-align: left;">
+                    <h1>Registration Page</h1>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <hr>
+
+    <!--Content 1-->
+    <div class="content" style="text-align: center;">
+        <h2>Create Your Macrohard account</h2>
+        <p>to use our services!</p>
+        <hr style="background-color: lightgoldenrodyellow; border: none; height: 2px;">
+        <br>
+
+        <form name="A6form" method="get" action="A3-2_Submit.html" onsubmit="return validateForm()">
+            <label>First Name : <input type="text" name="fname" required></label>
+            <label>Last Name : <input type="text" name="lname"></label><br>
+
+            <p><label>Gender:</label>
+                <input type="radio" id="Male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="Female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="Bruh" name="gender" value="other">
+                <label for="other">Other</label><br>
+            </p>
+
+
+            <label>Your Email : <input type="text" name="email"></label><br>
+            <br>
+
+            <span>Phone:</span><select name="code">
+                <option value="Select">
+                    Select
+                </option>
+                <option value="#">
+                    +420
+                </option>
+                <option value="ce">
+                    +187s
+                </option>
+                <option value="cs">
+                    +91
+                </option>
+                <option value="cse">
+                    +63
+                </option>
+                <option value="csee">
+                    +59
+                </option>
+            </select> <input type="text" name="phone"><br>
+            <p><label>Your birthday : <input type="date" name="dob"></label></p>
+
+            <div class="innerContent" style="text-align: left;">
+                <p style="text-align: left;">Address:<br>
+                    <textarea rows="5" cols="40" name="address"></textarea>
+                </p><br>
+                <hr style="background-color: lightgoldenrodyellow; border: none; height: 2px;">
+                <p><span style="font-size:20px; color: darkorange;">Terms of Service:</span><br>
+                    <br>
+                    <label><input type="checkbox" name="tc1">All users must accept the magical agreement of confusion
+                        and
+                        acknowledge that they have no idea what they are signing up for.</label><br>
+                    <br>
+                    <label><input type="checkbox" name="tc2">The user understands and agrees that any disputes will be
+                        settled in
+                        a
+                        playground.</label>
+                </p><br>
+            </div>
+
+            <!--Content 3-->
+            <div style="padding-bottom: 10px;">
+                <input type="submit" name="submit" value="Submit" class="submit">
+                <input type="reset" name="reset" value="Reset" class="reset">
+            </div>
+        </form>
+    </div>
+
+    <!--FOOTER-->
+    <hr>
+    <footer>
+        <table style="width: 100%">
+            <tr>
+                <td style="width:90%; text-align: left;">This page was crafted by Pratyush. © Copyright 1969</td>
+                <td style="width:20%; text-align: left;">
+                    <a href="#section0" title="To the top &amp; beyond!">Back to top ^</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var fname = document.A6form.fname.value;
+            if (fname == "" || fname == null) {
+                window.alert("You little unnamed behemoth. First name cannot be blank...");
+                return false;
+            }
+
+
+            var gender = document.A6form.gender;
+            let check = false;
+            for (var i = 0; i < gender.length; i++) {
+                if (gender[i].checked) {
+                    check = true;
+                    break;
+                }
+            }
+            if (!gender) {
+                window.alert('Bruh you genderless?');
+                return false;
+            }
+
+
+
+            var email = document.A6form.email.value;
+            if (email == "" || email == null) {
+                window.alert("Email cannot be left blank!");
+                return false;
+            }
+            if (!validEmail(email)) {
+                window.alert("Please enter a source of contating your cosciences. A valid email address perhaps.");
+                return false;
+            }
+
+
+          
+            var code = document.A6form.code.value;
+            if (code === "Select") {
+                window.alert("Please select a phone code!")
+                return false;
+            }
+
+            var phone = document.A6form.phone.value;
+            if (phone === "" || isNaN(phone)) {
+                window.alert("You unsocial creature. Enter a phone number so we can spam call you.");
+                return false;
+            }
+
+            const dob = document.A6form.dob.value
+            const dobDate = new Date(dob);
+            const currentDate = new Date();
+            if (dobDate.getTime() > currentDate.getTime() || dob === "") {
+                window.alert("So now you don't even remember when you were born?");
+                return false;
+            }
+
+            var address = document.A6form.address.value;
+            if (address === "" || address.length < 50) {
+                window.alert("Eh that is too little of an address. FBI needs more details.");
+                return false;
+            }
+
+            var tc1 = document.A6form.tc1.checked;
+            var tc2 = document.A6form.tc2.checked;
+            if (!tc1 || !tc2) {
+                window.alert("🔫 How dare you not accept the t&c? ");
+                return false;
+            }
+            return true;
+        }
+
+        /*function validEmail(email) {
+            const char = /^ \S+ @ \S+ \. \S+ $/;
+            return char.test(email);
+        }*/
+
+        function validEmail(email) {
+            const atIndex = email.indexOf('@');
+            const dotIndex = email.indexOf('.');
+
+            if (atIndex < 0 || dotIndex < 0) {
+                return false;
+            } else if (atIndex > dotIndex) {
+                return flase;
+            } else {
+                return true;
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

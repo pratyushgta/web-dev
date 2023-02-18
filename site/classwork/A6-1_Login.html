@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>📝Register Now!</title>
+    <link rel="stylesheet" href="A6.css">
+    <style>
+        .content {
+            background-color: teal;
+            text-align: center;
+            padding-top: 8%;
+            padding-left: 20%;
+            padding-bottom: 8%;
+            padding-right: 20%;
+        }
+
+        .content h1,
+        h2,
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .content form {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body link="darkcyan" alink="black" vlink="darkcyan">
+    <!--HEADER-->
+    <header id="section0">
+        <table>
+            <tr>
+                <td style="width: 25%; text-align: left;">
+                    <a href="A3-1.html" title="Previous Page">&lt; Résumé</a>
+                </td>
+                <td style="text-align: center;">
+                    <h1>Sign Up!</h1>
+                </td>
+                <td style="width: 25%; text-align: right;">
+                    <a href="A2-3.html" title="Next Page">Contact Us! &gt;</a>
+                </td>
+            </tr>
+        </table>
+    </header>
+
+    <hr>
+
+    <!--Content-->
+    <div class="content">
+        <div>
+            <h2>Welcome to Macrohard</h2>
+            <p>Start setting up your account by entering an username and password:</p>
+            <hr style="background-color: lightgoldenrodyellow; border: none; height: 2px;">
+
+            <form style="padding-top:5%" method="get" action="A3-2_Form.html" name="login_form"
+                onsubmit="return validateForm()">
+                <label>Username : <input type="text" name="username"></label><br>
+                <br>
+                <label>Password : <input type="password" name="password"></label><br>
+                <br>
+                <label>Re-type Password : <input type="password" name="repassword"></label><br>
+                <br>
+                <input type="submit" name="submit" value="Submit" class="submit">
+                <br>
+            </form>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <hr>
+    <footer>
+        <table style="width: 100%">
+            <tr>
+                <td style="width:90%; text-align: left;">If you find any typos, they're not mistakes, they're creative
+                    liberties. © Copyright 1969</td>
+                <td style="width:20%; text-align: left;">
+                    <a href="#section0" title="To the top &amp; beyond!">Back to top ^</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var username = document.login_form.username.value;
+            var pass = document.login_form.password.value;
+            var repass = document.login_form.repassword.value;
+
+            if (username == "" || username == null) {
+                window.alert("Username cannot be blank!");
+                return false;
+            } else if (pass.length < 5) {
+                window.alert("Password must have atleast 5 characters!");
+                return false;
+            } else if (pass != repass) {
+                window.alert("Passwords must be same!");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

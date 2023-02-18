@@ -1,0 +1,47 @@
+header table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+}
+
+header a {
+    text-decoration: none;
+}
+
+footer table {
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+}
+
+footer {
+    padding-left: 20px;
+}
+
+footer a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: lightcoral;
+    text-decoration: none;
+
+}
+.submit {
+    background-color: skyblue;
+    color: black;
+    border-style: outset;
+    border-color: skyblue;
+    height: 40px;
+    width: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.reset{
+    background-color: lightgray;
+    color: black;
+    border-style: outset;
+    border-color:  lightgray;
+    height: 40px;
+    width: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-shadow: none;
+}
