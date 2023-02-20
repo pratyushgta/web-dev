@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush Kumar">
+    <title>Anthem</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            background-color: teal;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav div a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        nav div a:hover {
+            background-color: black;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .content {
+            padding-top: 70px;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+
+        h1 {
+            text-align: center;
+            color: teal;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        video {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        audio{
+            width: 50%;
+        }
+
+        .innerbox {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 10px;
+            width: 100%;
+            padding-bottom: 10px;
+            background-color: gray;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .innerbox button{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            width: 15%;
+            height: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="">Home</a>
+                <a href="">Register</a>
+                <a href="">Gallery</a>
+                <a href="">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1 style="text-align: center;">Presenting the NMIMS Anthem!</h1>
+        <video controls>
+            <source src="bread.mp4">Noob browser
+        </video>
+
+        <div class="innerbox">
+            <h2>HD Audio</h2>
+            <audio controls>
+                <source src="secretaudio.mp3">Noob browser
+            </audio>
+            <br>
+            <button>Download Now</button>
+        </div>
+    </div>
+</body>
+
+</html>
