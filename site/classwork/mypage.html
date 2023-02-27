@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <script src="angular.min.js">
+    </script>
+</head>
+
+<body>
+    <h1>First Program on Angular JS</h1>
+    <div ng-app="" ng-init="course=[{class:'MBA.Tech',Sem:'4',subject:'WP'},
+        {class:'B.Tech',Sem:'7',subject:'Programming'},
+        {class:'MCA',Sem:'5',subject:'Computers'}]">
+        <p>Learning to write Angular JS directives and expression</p>
+        First Name: <input type="text" ng-model="firstname">
+        <br>
+        <br>
+        Last Name: <input type="text" ng-model="lastname">
+        <p>My name is: {{firstname+" "+lastname}}</p>
+        <table>
+            <tr>
+                <th>Class</th>
+                <th>Semester</th>
+                <th>Subject</th>
+            </tr>
+            <tr np-repeat="student in course">
+                <td>{{student.class}}</td>
+                <td>{{student.Sem}}</td>
+                <td>{{student.subject}}</td>
+            </tr>
+        </table>
+        <ul>
+            <li ng-repeat="student in course">
+                {{student.class + student.Sem + student.subject}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var minApp = angular.module("myapp", [])
+        mainApp.controller("Mycontrol", function ($scope))
+    </script>
+</body>
+
+</html>
