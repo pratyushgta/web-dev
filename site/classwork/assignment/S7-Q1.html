@@ -1,35 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush Kumar">
+    <title>Turntables</title>
+    <style>
+        table {
+            border: 1px black solid;
+            border-collapse: collapse;
+        }
+
+        td,
+        th,
+        tr {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px black solid;
+        }
+    </style>
 </head>
 
 <body>
-    <center>
-        <i class="itxt">A test table with merged cells</i>
-        <table class="tbl1" border=1>
-            <tr>
-                <th rowspan=2></th>
-                <th colspan=2>Average</th>
-                <th rowspan=2>Red Eyes</th>
-            </tr>
-            <tr>
-                <th>Height</th>
-                <th>Weight</th>
-            </tr>
-            <tr>
-                <th>Male</th>
-                <td>1.9</td>
-                <td>0.003</td>
-                <td>40%</td>
-            <tr>
-            <tr>
-                <th>Female</th>
-                <td>1.7</td>
-                <td>0.002</td>
-                <td>43%</td>
-            </tr>
-        </table>
-    </center>
+    <i>A test table with merged cells</i>
+    <table>
+        <tr>
+            <th rowspan=2></th>
+            <th colspan=2>Average</th>
+            <th rowspan=2>Red Eyes</th>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <th>Weight</th>
+        </tr>
+        <tr>
+            <th>Male</th>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td>40%</td>
+        <tr>
+        <tr>
+            <th>Female</th>
+            <td>1.7</td>
+            <td>0.002</td>
+            <td>43%</td>
+        </tr>
+    </table>
 </body>
 
 </html>

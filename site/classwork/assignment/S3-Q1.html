@@ -1,100 +1,160 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="author" content="Pratyush Kumar">
     <title>Anthem</title>
     <style>
         body {
-            background-color: gray;
+            font-family: verdana;
+            background-color: #eee;
         }
 
-        .content-box {
-            margin: 2% 20% 2% 20%;
+        input {
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: hidden;
+            background-color: #eee;
+        }
+
+        textarea {
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: hidden;
             background-color: white;
-            padding: 20px;
+            width: 900px;
+        }
+
+        .txtar:focus {
+            outline: none;
+        }
+
+        .no-outline:focus {
+            outline: none;
+        }
+
+        .txt2 {
+            font-size: 10px;
+        }
+
+        .d11 {
+            background-color: #eee;
+            border-radius: 10px;
+            margin-left: 130px;
+            margin-right: 130px;
+            padding: 10px;
+            border: solid lightgrey;
+        }
+
+        .d12 {
+            background-color: #eee;
+            border-radius: 10px;
+            margin-left: 130px;
+            width: 430px;
+            padding: 10px;
+            float: left;
+            border: solid lightgrey;
+        }
+
+        .d13 {
+            background-color: #eee;
+            border-radius: 10px;
+            margin-left: 600px;
+            margin-right: 130px;
+            padding: 10px;
+            border: solid lightgrey;
+        }
+
+        .d14 {
+            background-color: #eee;
+            border-radius: 10px;
+            margin-left: 130px;
+            margin-right: 130px;
+            padding: 10px;
+            border: solid lightgrey;
+        }
+
+        .d15 {
+            border: solid lightgrey;
+            border-radius: 10px;
+            margin-left: 130px;
+            margin-right: 130px;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .d1 {
+            background-color: white;
+            margin-top: 35px;
+            margin-left: 170px;
+            margin-right: 170px;
+            border-radius: 10px;
+            height: 95%;
+
+        }
+
+        .txt1 {
             text-align: center;
         }
 
-        .form-group {
-            background-color: lightgray;
-            padding: 10px;
-            margin-bottom: 10px;
-            text-align: left;
+        .submit {
+            margin-left: 30%;
+            color: white;
+            background-color: black;
+            border-radius: 30px;
+            height: 40px;
+            width: 500px;
         }
 
-        .form-group-2 {
-            background-color: lightgray;
-            padding: 10px;
-            margin-bottom: 10px;
-            text-align: left;
-            display: flex;
+        .srv {
+            background-color: #eee;
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: hidden;
         }
 
-        .d1,
-        .d2 {
-            flex-basis: 50%;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .form-group input {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: red;
-            margin-left: 5px;
-            width: 90%;
-        }
-
-        .form-group-2 input {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: red;
-            margin-left: 5px;
-            width: 50%;
+        .srv:focus {
+            outline: none;
         }
     </style>
+</head>
 
 <body>
-
-
-    <div class="content-box">
-        <h1>Contact Us</h1>
-        <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required>
-        </div>
-        <div class="form-group-2">
-            <div class="d1">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" required>
+    <form>
+        <div class="d1">
+            <br>
+            <h1 class="txt1">CONTACT US</h1><br>
+            <div class="d11">
+                <h3 class="txt2">FULL NAME *</h3><br>
+                <input type="text" class="no-outline" placeholder="Enter Your Name" required>
+            </div><br>
+            <div class="d12">
+                <h3 class="txt2">EMAIL *</h3><br>
+                <input type="text" class="no-outline" placeholder="Enter Your Email" required>
             </div>
-            <div class="d2">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" required>
-            </div>
+            <div class="d13">
+                <h3 class="txt2">PHONE</h3><br>
+                <input type="text" class="no-outline" placeholder="Enter Phone Number">
+            </div><br>
+            <div class="d14">
+                <h3 class="txt2">NEEDED SERVICES *</h3><br>
+                <select class="srv" required>
+                    <option value="o1" disabled selected>Please Choose</option>
+                    <option value="o2">Service 1</option>
+                    <option value="o3"> Service 2</option>
+                    <option value="o4">Service 3</option>
+                    <option value="o5">Service 4</option>
+                </select>
+            </div><br>
+            <div class="d15">
+                <h3 class="txt2">MESSAGE</h3><br>
+                <textarea rows=3 class="txtar" placeholder="Your Message Here ... "></textarea>
+            </div><br>
+            <button class="submit">Submit −></button>
         </div>
-
-        <div>
-            Phone : <select name="Branch">
-                <option value="#">+420</option>
-                <option value="ce">+187</option>
-                <option value="cs">+91</option>
-                <option value="cse">+69</option>
-            </select> <input type="text"><br>
-        </div>
-
-    </div>
+    </form>
 </body>
-</head>
 
 </html>
