@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <Script src="angular.min.js"></Script>
+    <title>My first AngularJS App</title>
+
+    <Style>
+        input.ng-invalid{
+            background-color: red;
+        }
+        
+        input.ng-valid{
+            background-color: green;
+        }
+
+        form.ng-pristine{
+            background-color: aqua;
+        }
+
+        form.ng-dirty{
+            background-color: yellow;
+        }
+    </Style>
+</head>
+
+<body ng-app="myApp">
+
+    <DIV ng-controller="myCtrl">
+        {{potato + " "+tomato}}
+    </DIV>
+    <DIV ng-controller="myCtrl2">
+        {{potato + " "+tomato}}
+    </DIV>
+    <DIV ng-controller="list">
+        <p ng-repeat="employee in employees">
+            {{employee.firstname}}
+            {{employee.lastname}}
+        </p>
+    </DIV>
+
+    <p>Search: <input type="text" ng-model="search"></p>
+    <div ng-controller="list">
+        <table border="1px">
+            <tr>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Salary</td>
+            </tr>
+            <tr ng-repeat="employee in employees | orderBy: '-salary' | filter: search">
+                <td>{{employee.firstname}}</td>
+                <td>{{employee.lastname | lowercase}}</td>
+                <td>{{employee.salary | currency}}</td>
+            </tr>
+        </table>
+
+        <hello-world></hello-world>
+
+        <div>
+            <form name="myForm">
+                <h2>Name:</h2>
+                <input name="myName" ng-model="myName" required>
+                <span style="color: brown;" ng-show="myForm.phone.$error.maxlength">REQUIRED!</span>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.potato = "POTATO";
+            $scope.tomato = "TOMATO";
+        });
+        app.controller("myCtrl2", function ($scope) {
+            $scope.potato = "PXXXX";
+            $scope.tomato = "TXXXX";
+        });
+        app.directive("helloWorld", function () {
+            return {
+                restrict: "E", //E=element A=attribute C=class M=comment
+                template: "Hello this is a directive!"
+            };
+        });
+
+        app.controller("list", function ($scope) {
+            var emp = [
+                { firstname: "A", lastname: "B", salary: 500 },
+                { firstname: "C", lastname: "D", salary: 200},
+                { firstname: "E", lastname: "F", salary: 300},
+            ];
+
+            $scope.employees = emp;
+        });
+
+        app.controller("form",function($scope){
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>
