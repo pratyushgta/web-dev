@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SET-A-Q1</title>
+    <script src="angular.min.js"></script>
+</head>
+
+<body>
+    <form name="detailsForm" method="get" action="A2-1.html" onsubmit="return ValidateForm()">
+        <label>Username: <input type="text" name="username"></label>
+        <label>Password: <input type="text" name="password"></label>
+        <label>Pancard: <input type="text" name="pan"></label>
+        <input type="submit" name="submit" value="submit">
+    </form>
+    <script>
+        function ValidateForm() {
+            var uname = document.detailsForm.username.value;
+            if (!/[A-Za-z]/.test(uname)) {
+                window.alert("Only upper or lower letters!")
+                return false;
+            }
+
+            const form = document.getElementById('detailsForm');
+
+            /*form.addEventListener('submit',function(event){
+                event.preventDefault(); //prevent form from submitting
+            });
+
+            const password= document.getElementById('password').value;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,15}$/;
+            if(!passwordRegex.test(password)){
+                alert("Password must be 6-15 long and contain special chars");
+                return false;
+            }*/
+            const password = document.detailsForm.password.value;
+            //const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,15}$/;
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be 6-15 long and contain special chars");
+                return false;
+            }
+            const pancard = document.detailsForm.pan.value;
+            const pancardRegex = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
+            if (!pancardRegex.test(pancard)) {
+                alert("Pancard must be 10 characters long, with letters, digits, and 1 letter at the end");
+                return false;
+            }
+            return true;
+
+        }
+
+        function reverse() {
+            //reverse string
+        }
+    </script>
+</body>
+
+</html>
