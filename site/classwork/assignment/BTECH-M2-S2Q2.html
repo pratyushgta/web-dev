@@ -26,6 +26,7 @@
         var app = angular.module('myApp', []);
 
         app.controller('ItemListController', function ($scope) {
+            $scope.test="TEST";
             $scope.items = [
                 { name: 'Item 1', price: 10 },
                 { name: 'Item 2', price: 20 },
