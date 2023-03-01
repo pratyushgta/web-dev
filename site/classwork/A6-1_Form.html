@@ -144,6 +144,23 @@
                 return false;
             }
 
+            /*const inputField = document.getElementById('fname');
+            inputField.addEventListener('input', function(){
+                const val = inputField.value;
+                const Upper = /[A-Z]/.test(val);
+
+                if(Upper){
+                    window.alert("Input only in Uppercase!")
+                } else{
+                    return false;
+                }
+            });*/
+
+            if(/[A-Z]/.test(fname)==false){
+                window.alert("Uppercase only!");
+                return false;
+            }
+
 
             var gender = document.A6form.gender;
             let check = false;

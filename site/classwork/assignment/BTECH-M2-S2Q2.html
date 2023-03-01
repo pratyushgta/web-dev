@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>My first AngularJS App</title>
+</head>
+
+<body ng-app="myApp">
+    <h1>Item List</h1>
+    <div ng-controller="ItemListController">
+        <label>Sort by:</label>
+        <select ng-model="orderByField" ng-change="sortData()">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+        </select>
+        <ul>
+            <li ng-repeat="item in items">
+                <span>{{item.name}} - {{item.price}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('ItemListController', function ($scope) {
+            $scope.items = [
+                { name: 'Item 1', price: 10 },
+                { name: 'Item 2', price: 20 },
+                { name: 'Item 3', price: 15 },
+                { name: 'Item 4', price: 25 },
+                { name: 'Item 5', price: 18 },
+                { name: 'Item 6', price: 12 }
+            ];
+
+            $scope.orderByField = 'name';
+            $scope.reverseSort = false;
+
+            $scope.sortData = function () {
+                $scope.reverseSort = ($scope.orderByField === 'price') ? true : false;
+                $scope.items.sort(function (a, b) {
+                    return (a[$scope.orderByField] > b[$scope.orderByField] ? 1 : -1);
+                });
+            };
+        });
+
+    </script>
+</body>
+
+</html>
