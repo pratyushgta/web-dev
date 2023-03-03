@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SET-A-Q1</title>
+    <script src="angular.min.js"></script>
+</head>
+
+<body>
+    <form name="colorf1">
+        <input type="button" value="RED" onclick="changeColor(value)">
+        <input type="button" value="YELLOW" onclick="changeColor(value)">
+        <input type="button" value="GREEN" onclick="changeColor(value)">
+    </form>
+
+    <p>
+        <input id="a" type="text">
+        <button onclick="extract();">Click me!</button>
+        <P id="output"></P>
+    </p>
+
+    <script>
+        function changeColor(newcolor) {
+            document.bgColor = newcolor;
+        }
+
+        function extract(){
+            var a = document.getElementById("a").value;
+            var message = a.substring(1);
+            window.alert(message);
+
+            document
+            .getElementById("output")
+            .innerHTML =message;
+        }
+    </script>
+</body>
+
+</html>

@@ -17,10 +17,12 @@
     <script>
         function ValidateForm() {
             var uname = document.detailsForm.username.value;
-            if (!/[A-Za-z]/.test(uname)) {
+            if (!/[A+E+I+O+U]/.test(uname)) {
                 window.alert("Only upper or lower letters!")
                 return false;
             }
+
+
 
             const form = document.getElementById('detailsForm');
 
@@ -35,7 +37,7 @@
                 return false;
             }*/
             const password = document.detailsForm.password.value;
-            //const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,15}$/;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,15}$/;
 
             if (!passwordRegex.test(password)) {
                 alert("Password must be 6-15 long and contain special chars");
