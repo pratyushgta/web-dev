@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shoppingCartApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item {
+            margin-bottom: 10px;
+        }
+
+        .cart-item span {
+            display: inline-block;
+            width: 50px;
+            text-align: center;
+        }
+
+        .cart-item button {
+            margin-left: 10px;
+        }
+
+        .cart-summary {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body ng-controller="shoppingCartController">
+    <h1>Shopping Cart App</h1>
+    <div class="error" ng-show="error">{{ error }}</div>
+    <div class="product" ng-repeat="product in products">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price }}</p>
+        <button ng-click="addToCart(product)">Add to Cart</button>
+    </div>
+    <h2>Cart</h2>
+    <div class="cart-item" ng-repeat="item in cart">
+        <span>{{ item.name }}</span>
+        <span>{{ item.quantity }}</span>
+        <button ng-click="removeFromCart(item)">Remove</button>
+    </div>
+    <div class="cart-summary" ng-show="cart.length > 0">
+        Total: {{ getTotal() }}
+    </div>
+    <script>
+        angular.module('shoppingCartApp', [])
+            .controller('shoppingCartController', function ($scope) {
+                $scope.error = '';
+                $scope.products = [
+                    { name: 'Product A', description: 'Description of Product A', price: 10.99 },
+                    { name: 'Product B', description: 'Description of Product B', price: 12.99 },
+                    { name: 'Product C', description: 'Description of Product C', price: 14.99 }
+                ];
+                $scope.cart = [];
+
+                $scope.addToCart = function (product) {
+                    var existingItem = $scope.cart.find(function (item) {
+                        return item.name === product.name;
+                    });
+
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        $scope.cart.push({ name: product.name, price: product.price, quantity: 1 });
+                    }
+                };
+
+                $scope.removeFromCart = function (item) {
+                    var index = $scope.cart.indexOf(item);
+                    $scope.cart.splice(index, 1);
+                };
+
+                $scope.getTotal = function () {
+                    return $scope.cart.reduce(function (total, item) {
+                        return total + (item.price * item.quantity);
+                    }, 0);
+                };
+            });
+    </script>
+</body>
+
+</html>
