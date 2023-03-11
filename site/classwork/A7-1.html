@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shopping go brrr</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .content {
+            width: 60%;
+        }
+
+        .cart_content {
+            padding: 2%;
+            margin-left: 5%;
+            background-color: antiquewhite;
+            width: 40%;
+        }
+
+        .page {
+            display: flex;
+        }
+
+        .product h3,
+        p,
+        button {
+            margin-left: 4%;
+        }
+
+        .product_p {
+            color: tomato;
+            font-size: 20px;
+        }
+
+        .product button {
+            background-color: teal;
+            border: 2px solid black;
+            color: white;
+            height: 40px;
+            width: 100px;
+            border-radius: 10px;
+        }
+
+        .qty {
+            border: 2px solid black;
+            background-color: cornflowerblue;
+            width: 10%;
+        }
+
+        .cart_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .cart_item button {
+            flex: none;
+            background-color: crimson;
+            border: 2px solid black;
+            color: white;
+            height: 20px;
+            width: 100px;
+            border-radius: 10px;
+
+        }
+
+        .cart_summary {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .checkout {
+            background-color: gray;
+            border: 2px solid black;
+            color: white;
+            height: 40px;
+            width: 100px;
+            border-radius: 10px;
+        }
+
+        .checkout:not([disabled]) {
+            background-color: lightseagreen;
+            border: 2px solid black;
+            color: white;
+            height: 40px;
+            width: 100px;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body ng-app="shoppingApp">
+    <div ng-controller="ItemController">
+        <div class="page">
+            <div class="content" style="font-family:Product Sans">
+                <h1>🥒 Pickle Mart</h1>
+                <hr>
+                <h3>Hello there! What are you looking for, today?</h3>
+                <hr>
+                <div class="product" ng-repeat="product in products">
+                    <p class="product_p">{{ product.name }}</p>
+                    <p>{{ product.description }}</p>
+                    <p style="font-weight: bold;">Price: {{ product.price }}</p>
+                    <button ng-click="addToCart(product)">Add to Cart</button>
+                    <hr>
+                </div>
+
+
+            </div>
+
+            <div class="cart_content" style="font-family:Product Sans">
+                <h2>🛒 Your cart</h2>
+                <p>Checkout or modify items from here</p>
+                <hr>
+                <div class="cart_item" ng-repeat="item in cart">
+                    <span style="text-align:left;">{{ item.name }}</span>
+                    <span class="qty" style="text-align:center">{{ item.quantity }}</span>
+                    <button ng-click="removeFromCart(item)">Remove</button>
+                </div>
+                <br>
+
+                <div class="cart_summary" ng-show="cart.length > 0" style="text-align:right">
+                    <hr>
+                    Total: {{ getTotal() }}
+                </div>
+
+                <button class="checkout" style="float:right; margin-top:10px"
+                    ng-disabled="cart.length<1">Checkout</button>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var myApp = angular.module("shoppingApp", [])
+        var ItemController = function ($scope) {
+            $scope.products = [
+                { name: 'Apples', description: 'Shiny, round, succulent gangsta of fruits', price: 52.63 },
+                { name: 'Bananas', description: "Yellow boomerangs for when you're feeling a- peeling", price: 42.00 },
+                { name: 'Coconuts', description: 'Tough, rugged with gnarly bark and punk rock hairdo.', price: 13.50 }
+            ];
+            $scope.cart = [];
+
+            $scope.addToCart = function (product) {
+                var existingItem = $scope.cart.find(function (item) {
+                    return item.name === product.name;
+                });
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    $scope.cart.push({ name: product.name, price: product.price, quantity: 1 });
+                }
+            };
+
+            $scope.removeFromCart = function (item) {
+                var index = $scope.cart.indexOf(item);
+                $scope.cart.splice(index, 1);
+            };
+
+            $scope.getTotal = function () {
+                return $scope.cart.reduce(function (total, item) {
+                    return total + (item.price * item.quantity);
+                }, 0);
+            };
+
+        }
+
+        myApp.controller("ItemController", ItemController);
+    </script>
+</body>
+
+</html>

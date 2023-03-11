@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Upside down</title>
+  <meta name="author" content="Pratyush Kumar">
+  <script src="angular.min.js"></script>
+  <style>
+    body {
+      background-color: gray;
+      margin: 2%;
+      padding: 0;
+    }
+
+    h1 {
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .like {
+      margin-top: 10px;
+      background-color: teal;
+      border: 2px solid black;
+      color: white;
+      height: 50px;
+      width: 100px;
+      border-radius: 10px;
+    }
+
+    .dislike {
+      background-color: crimson;
+      border: 2px solid black;
+      color: white;
+      height: 50px;
+      width: 100px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body ng-app="">
+  <h1>Likeliness of dislikes</h1>
+  <hr>
+  <div id="content" style="font-family:Product Sans">
+
+    <label><input class="like" type="button" ng-click="counter = counter + 1" value="Barnacles"></label>
+    <label></label><input class="dislike" type="button" ng-click="counter = counter - 1" value="Watch it burn"></label>
+
+    <h3 ng-init="counter=0">Counter: <span style="color:antiquewhite;">{{counter}}</span></h3>
+    <hr>
+
+  </div>
+</body>
+
+</html>
