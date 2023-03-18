@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>AngularJS Table</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script>
-        var app = angular.module("myApp", []);
-    </script>
+    <meta charset="utf-8">
+    <title>tabooolssss</title>
+    <link rel="icon" href="applepie.png" type="image/x-icon">
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
     <style>
         table,
         th,
@@ -16,48 +15,53 @@
             border-collapse: collapse;
             border-width: 2px;
             padding: 5px;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        table tr:nth-child(odd) {
-            background-color: wheat;
+        table th {
+            background-color: lightblue;
         }
 
         table tr:nth-child(even) {
-            background-color: teal;
+            background-color: lightgray;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: lightyellow;
         }
     </style>
-
 </head>
 
-<body>
-    <div ng-controller="tableCtrl">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="data in tableData">
-                    <td>{{data.name}}</td>
-                    <td>{{data.age}}</td>
-                    <td>{{data.city}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<body ng-app="myApp" ng-controller="tableController">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Purpose</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in tableData">
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.purpose}}</td>
+                <td>{{item.country}}</td>
+            </tr>
+        </tbody>
+    </table>
 
     <script>
-        app.controller("tableCtrl", function ($scope) {
+        var myApp = angular.module("myApp", []);
+        myApp.controller('tableController', function ($scope, $window) {
             $scope.tableData = [
-                { name: "John", age: 25, city: "New York" },
-                { name: "Mary", age: 30, city: "Los Angeles" },
-                { name: "Peter", age: 35, city: "Chicago" },
-                { name: "Jane", age: 40, city: "Houston" }
+                { name: "Bing Boing", age: 63, purpose: "breathe", country: "Antarctica" },
+                { name: "Jimmy Neutron", age: 42, purpose: "electrify", country: "Fischot Island" },
+                { name: "Peppa Pig", age: 80, purpose: "oink", country: "Madagascar" },
+                { name: "Bobo", age: "unknown", purpose: "robot", country: "-redacted-" }
             ];
-        });
+        }); 
     </script>
 </body>
 
