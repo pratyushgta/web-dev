@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>tabooolssss</title>
+    <link rel="icon" href="applepie.png" type="image/x-icon">
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-width: 2px;
+            padding: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        table th {
+            background-color: lightblue;
+        }
+
+        table tr:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="tableController">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Purpose</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in tableData">
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.purpose}}</td>
+                <td>{{item.country}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var myApp = angular.module("myApp", []);
+        myApp.controller('tableController', function ($scope, $window) {
+            $scope.tableData = [
+                { name: "Bing Boing", age: 63, purpose: "breathe", country: "Antarctica" },
+                { name: "Jimmy Neutron", age: 42, purpose: "electrify", country: "Fischot Island" },
+                { name: "Peppa Pig", age: 80, purpose: "oink", country: "Madagascar" },
+                { name: "Bobo", age: "unknown", purpose: "robot", country: "-redacted-" }
+            ];
+        }); 
+    </script>
+</body>
+
+</html>

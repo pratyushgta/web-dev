@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Table</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+    </script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-width: 2px;
+            padding: 5px;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: wheat;
+        }
+
+        table tr:nth-child(even) {
+            background-color: teal;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div ng-controller="tableCtrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in tableData">
+                    <td>{{data.name}}</td>
+                    <td>{{data.age}}</td>
+                    <td>{{data.city}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        app.controller("tableCtrl", function ($scope) {
+            $scope.tableData = [
+                { name: "John", age: 25, city: "New York" },
+                { name: "Mary", age: 30, city: "Los Angeles" },
+                { name: "Peter", age: 35, city: "Chicago" },
+                { name: "Jane", age: 40, city: "Houston" }
+            ];
+        });
+    </script>
+</body>
+
+</html>
