@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>📝Registration Form</title>
+    <link rel="icon" href="applepie.png" type="image/x-icon">
+    <link rel="stylesheet" href="A6.css">
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        .content {
+            background-color: teal;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+
+        .content h1,
+        h2,
+        p,
+        label,
+        span {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .content form {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .innerContent {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    </style>
+</head>
+
+<body link="darkcyan" alink="black" vlink="darkcyan" ng-app="myApp" ng-controller="formController">
+
+    <!--HEADER-->
+    <header id="section0">
+        <table>
+            <tr>
+                <td style="width: 100%; text-align: center;">
+                    <h1>Registration Page</h1>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <hr>
+
+    <!--Content 1-->
+    <div class="content" style="text-align: center;">
+        <h2>Create Your Macrohard account</h2>
+        <p>to use our services!</p>
+        <hr style="background-color: lightgoldenrodyellow; border: none; height: 2px;">
+        <br>
+
+        <form name="form" ng-submit="submitForm()">
+            <label>First Name : <input type="text" name="fname" required></label>
+            <label>Last Name : <input type="text" name="lname"></label><br>
+
+            <p><label>Gender:</label>
+                <input type="radio" id="Male" name="gender" value="male" ng-model="gender" required>
+                <label for="male">Male</label>
+                <input type="radio" id="Female" name="gender" value="female" ng-model="gender" required>
+                <label for="female">Female</label>
+                <input type="radio" id="Bruh" name="gender" value="Bruh" ng-model="gender" required>
+                <label for="Bruh">Bruh</label><br>
+
+            <div style="color:crimson" ng-show="form.gender.$error.required && form.gender.$dirty">You
+                must select a gender!</div>
+            </p>
+
+
+            <label>Your Email : </label>
+            <input type="email" name="email" ng-model="email" ng-required="true">
+            <span style="color: crimson;" ng-show="form.email.$error.required && form.email.$dirty">Email is required
+                for spams!</span>
+            <span style="color:gold;" ng-show="form.email.$error.email && form.email.$dirty">Invalid
+                format!</span>
+
+            <br>
+            <br>
+
+            <label>Sauce PAN number :</label>
+            <input type="text" name="pan" ng-model="pan" ng-required="true" ng-pattern="/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/">
+            <span style="color: crimson;" ng-show="form.pan.$error.required && form.pan.$dirty">PAN is required to
+                roast you :]</span>
+            <span style="color:gold;" ng-show="form.pan.$error.pattern && form.pan.$dirty">Invalid PAN number</span>
+
+            <br>
+            <br>
+
+            <span>Phone:</span>
+            <select name="code" ng-model="selectedCode" ng-options="item.value as item.label for item in dropdownItems"
+                ng-required="true">
+                <option value="">Select</option>
+            </select>
+            <span style="color: crimson;" ng-show="form.code.$error.required && form.selectedCode.$dirty">Select a
+                country
+                code...</span>
+
+            <input type="tel" name="phone" ng-model="phone" maxlength="10" ng-pattern="/^\d{10}$/"><br>
+            <div style="color:crimson" ng-show="form.phone.$error.pattern">Phone number can have 10 digits only!</div>
+
+
+            <div class="innerContent" style="text-align: left;">
+                <p style="text-align: left;">Address:<br>
+                    <textarea rows="5" cols="40" name="address"></textarea>
+                </p><br>
+                <hr style="background-color: lightgoldenrodyellow; border: none; height: 2px;">
+                <p><span style="font-size:20px; color: darkorange;">Terms of Service:</span><br>
+                    <br>
+                    <label><input type="checkbox" name="tc1" ng-model="tc1" ng-required="true" ng-init="tc1=true">All
+                        users must accept the
+                        magical agreement of confusion
+                        and acknowledge that they have no idea what they are signing up for.</label><br>
+                    <br>
+                    <label><input type="checkbox" name="tc2" ng-model="tc2" ng-required="true">The user understands and
+                        agrees that any disputes will be
+                        settled in a playground.</label>
+                </p><br>
+                <div style="color:crimson" ng-show="form.$submitted && form.tc1.$error.required">You must accept the
+                    magical agreement
+                    of confusion.</div>
+                <div style="color:crimson" ng-show="form.$submitted && form.tc2.$error.required">You must agree to the
+                    dispute
+                    settlement terms.</div>
+            </div>
+
+            <!--Content 3-->
+            <div style="padding-bottom: 10px;">
+                <input type="submit" name="submit" value="Submit" class="submit">
+                <input type="reset" name="reset" value="Reset" class="reset">
+            </div>
+        </form>
+    </div>
+
+    <!--FOOTER-->
+    <hr>
+    <footer>
+        <table style="width: 100%">
+            <tr>
+                <td style="width:90%; text-align: left;">This page was crafted by Pratyush. © Copyright 1969</td>
+                <td style="width:20%; text-align: left;">
+                    <a href="#section0" title="To the top &amp; beyond!">Back to top ^</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+        var myApp = angular.module("myApp", []);
+        myApp.controller('formController', function ($scope, $window) {
+
+            $scope.dropdownItems = [
+                { value: '#', label: '+420' },
+                { value: 'ce', label: '+187' },
+                { value: 'cs', label: '+91' },
+                { value: 'cse', label: '+63' },
+                { value: 'csee', label: '+59' }
+            ];
+            $scope.selectedCode = '';
+
+            $scope.radioValid = false;
+            $scope.dropdownValid = false;
+            $scope.checkboxValid = true;
+            $scope.submitForm = function () {
+                if (!$scope.form.$valid) {
+                    alert(":/ hmm something's wrong you see...")
+                }
+                $window.location.href = 'A8-2_Form.html'
+            };
+
+        });
+    </script>
+</body>
+
+</html>

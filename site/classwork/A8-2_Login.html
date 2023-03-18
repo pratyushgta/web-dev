@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>📝Register Now!</title>
+    <link rel="stylesheet" href="A6.css">
+    <link rel="icon" href="applepie.png" type="image/x-icon">
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        .content {
+            background-color: teal;
+            text-align: center;
+            padding-top: 8%;
+            padding-left: 20%;
+            padding-bottom: 5%;
+            padding-right: 20%;
+        }
+
+        .content h1,
+        h2,
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .content form {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body link="darkcyan" alink="black" vlink="darkcyan" ng-app="myApp" ng-controller="formController">
+    <!--HEADER-->
+    <header id="section0">
+        <table>
+            <tr>
+                <td style="width: 100%; text-align: center;">
+                    <h1>Registration Page</h1>
+                </td>
+            </tr>
+        </table>
+    </header>
+
+    <hr>
+
+    <!--Content-->
+    <div class="content">
+        <div>
+            <h2>Welcome to Macrohard</h2>
+            <p>Start setting up your account by entering an username and password:</p>
+            <hr style="background-color: lightgoldenrodyellow; border: none; height: 2px;">
+
+            <form style="padding-top:5%" name="login_form" ng-submit="submitForm()">
+
+                <div class="UsernameContainer">
+                    <label>Username : <input type="text" name="username" ng-model="username" ng-required="true"
+                            ng-pattern="/^[A-Z][a-z]*$/"></label>
+                    <!--<span style="color:darkslateblue"
+                        ng-show="login_form.username.$dirty && login_form.username.$invalid">Invalid
+                        username</span>-->
+                    <span style="color:crimson"
+                        ng-show="login_form.username.$error.required && login_form.username.$dirty">Username cannot be
+                        blank!</span>
+                    <div style="color:gold; font-size: 12px; margin-top: 10px;"
+                        ng-show="login_form.username.$error.pattern && login_form.username.$dirty">Username must
+                        start with a capital letter and contain only alphabets!</div>
+                </div>
+                <br>
+                <br>
+
+                <div class="PasswordContainer">
+                    <label>Password : <input type="password" name="password" ng-model="password" required
+                            ng-pattern="/^[a-zA-Z0-9]{5,15}$/"></label>
+                    <span style="color:crimson"
+                        ng-show="login_form.password.$error.required && login_form.password.$dirty">Password
+                        cannot be empty!</span>
+                    <div style="color:gold; font-size: 12px; margin-top: 10px;"
+                        ng-show="login_form.password.$error.pattern && login_form.password.$dirty">Password must
+                        be 5-15 characters long and contain only alphanumeric characters</div>
+                </div>
+                <br>
+                <br>
+
+                <div class="ConfPasswordContainer">
+                    <label>Confirm Password : <input type="password" name="ConfPass" ng-model="ConfPass" required
+                            ng-pattern="{{password}}"></label>
+                    <span style="color:crimson"
+                        ng-show="login_form.ConfPass.$error.required && login_form.ConfPass.$dirty">You must confirm the
+                        entered password!</span>
+
+                    <div style="color:gold; font-size: 12px; margin-top: 10px;"
+                        ng-show="login_form.ConfPass.$error.pattern && login_form.ConfPass.$dirty">Confirm password does
+                        not match the entered password!</div>
+                </div>
+                <br>
+
+
+
+                <input type="submit" name="submit" value="Submit" class="submit">
+                <br>
+            </form>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <hr>
+    <footer>
+        <table style="width: 100%">
+            <tr>
+                <td style="width:90%; text-align: left;">If you find any typos, they're not mistakes, they're creative
+                    liberties. © Copyright 1969</td>
+                <td style="width:20%; text-align: left;">
+                    <a href="#section0" title="To the top &amp; beyond!">Back to top ^</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+        var myApp = angular.module("myApp", []);
+        myApp.controller('formController', function ($scope, $window) {
+            $scope.submitForm = function () {
+                $window.location.href = 'A8-2_Form.html'
+            };
+        });
+    </script>
+</body>
+
+</html>
