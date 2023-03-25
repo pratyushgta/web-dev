@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dependency Injection</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <h1>Addition Injection</h1>
+        <div class="content">
+            <hr>
+            <label>Number 1:</label>
+            <input type="number" ng-model="num1">
+            <br>
+            <label>Number 2:</label>
+            <input type="number" ng-model="num2">
+            <br>
+            <button ng-click="add()">Add</button>
+            <p>Addition is: {{result}}</p>
+        </div>
+    </div>
+
+    <script>
+        var myApp = angular.module("myApp", []);
+
+        myApp.service("myService", function () {
+            this.add = function (num1, num2) {
+                return num1 + num2;
+            }
+        });
+
+        myApp.controller("myCtrl", function ($scope, myService) {
+            $scope.num1 = 0;
+            $scope.num2 = 0;
+            $scope.add = function () {
+                $scope.result = myService.add($scope.num1, $scope.num2);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

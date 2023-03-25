@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular Services</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <h1>Juggling Services</h1>
+        <hr>
+        <div class="content">
+            <p><span style="font-weight: bold;">File URL using $location =</span> {{getUrl}}</p>
+            <p><span style="font-weight: bold;">3 second timeout using $timeout =</span> {{timeout}}</p>
+            <p><span style="font-weight: bold;">$http result =</span> {{name}}</p>
+            <p><span style="font-weight: bold;">1 sec auto-counter using $interval =</span> {{counter}}</p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $location, $timeout, $http, $interval) {
+            $scope.getUrl = $location.absUrl();
+
+            $timeout(function () {
+                $scope.timeout = "Timeout completed!";
+            }, 3000);
+
+            $http.get("http://localhost:8000/A9-2.json")
+                .then(function (response) {
+                    var data = response.data[0];
+                    var name = data.name;
+                    $scope.name = name;
+                });
+
+
+            $scope.counter = 0;
+            $interval(function () {
+                $scope.counter++;
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
