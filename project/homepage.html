@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airline Booking</title>
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <figure class="logo">
+            <img src="assets/airline-logo.jpg" alt="Airline logo" />
+        </figure>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#">Book</a></li>
+                <li><a href="#">Check-in</a></li>
+                <li><a href="#">Manage</a></li>
+            </ul>
+        </nav>
+        <button class="login-btn"></button>
+    </header>
+
+
+    <section class="slideshow">
+        <img src="assets/banner1.jfif" alt="Slide 1" />
+        <img src="assets/banner2.jfif" alt="Slide 1" />
+        <div class="slide-text"></div>
+        <button class="prev">&#8249;</button>
+        <button class="next">&#8250;</button>
+    </section>
+
+    <main>
+        <div id="home">
+            <form class=" search-form">
+                <ul class="nav-menu2">
+                    <li><a href="#">Search Flights</a></li>
+                    <li><a href="#" disabled>Flight Status</a></li>
+                    <li><a href="#" disabled>My Bookings</a></li>
+                    <li><a href="#" disabled>Manage</a></li>
+                </ul>
+
+                <h3>Search Flights</h3>
+                <span class="pax-type"><label for="flight-type">Flight type:</label></span>
+                <select id="flight-type" name="flight-type">
+                    <option value="one-way">One-way</option>
+                    <option value="round-trip">Round-trip</option>
+                    <option value="multi-city">Multi-city</option>
+                </select>
+
+                <span class="pax-type"><label for="passengers">Passengers:</label></span>
+                <input type="number" id="passengers" name="passengers" class="drop" step="1" min="1" max="10"></span>
+
+
+                <div class="from-to-date-container">
+                    <div class="from-to-container">
+                        <label for="from">From:</label>
+                        <select id="from" name="from">
+                            <option value="Origin">Origin</option>
+                            <option value="Mumbai">MUMBAI</option>
+                            <option value="Delhi">DELHI</option>
+                            <option value="Banglore">BANGLORE</option>
+                            <option value="Kolkata">KOLKATA</option>
+                        </select>
+
+                        <label for="to">To:</label>
+                        <select id="to" name="to">
+                            <option value="Destination">Destination</option>
+                            <option value="Mumbai">MUMBAI</option>
+                            <option value="Delhi">DELHI</option>
+                            <option value="Banglore">BANGLORE</option>
+                            <option value="Kolkata">KOLKATA</option>
+                        </select>
+                    </div>
+                    <div class="dates-container">
+                        <label for="departure-date">Departure date:</label>
+                        <input type="date" id="departure-date" name="departure-date" required />
+
+                        <label for="return-date">Return date:</label>
+                        <input type="date" id="return-date" name="return-date disabled" />
+                    </div>
+                </div>
+
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <!--Tab Content My Bookings-->
+        <div id="menu1" class="tab-pane fade">
+            <h3 class="lab2">My Bookings</h3>
+            <form action="Ticket.php" method="POST">
+                <input type="text" name="ticketno" placeholder="Ticket Number" class="drop2">
+                <input type="text" name="lastname" placeholder="Passenger Last Name" class="drop2">
+                <input type="submit" name="submit" id="tickButton">
+            </form>
+        </div>
+        <!--Tab Content My Bookings Ends-->
+
+        <!--Tab Content Flight Status-->
+        <div id="menu2" class="tab-pane fade">
+            <h3 class="lab2">Flight Status</h3>
+            <form action="FlightStatus.php" method="POST">
+                <input type="text" name="flightid" placeholder="Flight Number" class="drop2">
+                <select name="origin" class="drop2">.
+                    <option value="org">Origin</option>
+                    <option value="Mumbai">MUMBAI</option>
+                    <option value="Delhi">DELHI</option>
+                    <option value="Banglore">BANGLORE</option>
+                    <option value="Kolkata">KOLKATA</option>
+                </select>
+                <span class="lab2">Date:</span>
+                <input type="date" name="depart" class="drop21">
+                <input type="submit" name="submit" id="fsButton">
+            </form>
+        </div>
+        <!--Tab Content Flight Status Ends-->
+
+        <div class="offers">
+            <div class="one">
+                <h2>HTML5</h2><br>
+                <h4>OFFER 1</h4><br>
+                DESCRIPTION
+            </div>
+            <div class="one">
+                <h2>HTML5</h2><br>
+                <h4>OFFER 2</h4><br>
+                DESCRIPTION
+            </div>
+            <div class="one">
+                <h2>HTML5</h2><br>
+                <h4>OFFER 2</h4><br>
+                DESCRIPTION
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        const slideshow = document.querySelector('.slideshow');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const slides = slideshow.querySelectorAll('img');
+        let currentSlide = 0;
+
+        // Hide all slides except the first one
+        for (let i = 1; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
+
+        // Add click event listeners to the buttons
+        prevButton.addEventListener('click', showPreviousSlide);
+        nextButton.addEventListener('click', showNextSlide);
+
+        function showPreviousSlide() {
+            // Hide the current slide
+            slides[currentSlide].style.display = 'none';
+            // Decrement the current slide index
+            currentSlide--;
+
+            // Wrap around to the last slide if necessary
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+
+            // Show the new current slide
+            slides[currentSlide].style.display = 'block';
+        }
+
+        function showNextSlide() {
+            // Hide the current slide
+            slides[currentSlide].style.display = 'none';
+            // Increment the current slide index
+            currentSlide++;
+
+            // Wrap around to the first slide if necessary
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+
+            // Show the new current slide
+            slides[currentSlide].style.display = 'block';
+        }
+
+        const flightType = document.querySelector('#flight-type');
+        const returnDate = document.querySelector('#return-date');
+
+        flightType.addEventListener('change', () => {
+            if (flightType.value === 'one-way') {
+                returnDate.disabled = true;
+                returnDate.value = '';
+            } else {
+                returnDate.disabled = false;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
