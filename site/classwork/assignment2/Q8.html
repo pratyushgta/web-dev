@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular Mart</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Martonara</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <label ng-hide="isHidden">Enter store name: </label>
+        <input id="num" type="text" ng-model="storeName" ng-hide="isHidden" ng-init="storeName='My Store'">
+        <button ng-show="isHidden" ng-click="isHidden=false">Show Store Name</button>
+        <button ng-show="!isHidden" ng-click="isHidden=true">Hide Store Name</button>
+        <br>
+        <br>
+
+        <form ng-submit="addItem()">
+            <label>Item Type:</label>
+            <select ng-model="itemType" required>
+                <option value="">-- Select Type --</option>
+                <option value="Fruit">Fruit</option>
+                <option value="Vegetable">Vegetable</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Meat">Meat</option>
+            </select>
+            <label>Enter Item Name:</label>
+            <input type="text" ng-model="itemName" required>
+            <button type="submit" ng-disabled="!itemName">Add Item</button>
+        </form>
+
+        <br>
+
+        <label>Filter by Type:</label>
+        <select ng-model="filterType">
+            <option value="">-- All Types --</option>
+            <option value="Fruit">Fruit</option>
+            <option value="Vegetable">Vegetable</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Meat">Meat</option>
+        </select>
+
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items | filter: {type: filterType}">
+                    <td>{{item.type}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        angular.module("myApp", [])
+            .controller("myCtrl", function ($scope) {
+                $scope.items = [];
+
+                $scope.isDisabled = false;
+
+                $scope.addItem = function () {
+                    $scope.items.push({
+                        type: $scope.itemType,
+                        name: $scope.itemName
+                    });
+
+                    $scope.itemType = "";
+                    $scope.itemName = "";
+                };
+
+                $scope.isHidden = false;
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular books</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body ng-app="bookApp" ng-controller="bookCtrl">
+    <h1>Angular 'Library'</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <form>
+            <br>
+            <label for="bookName">Book Name:</label>
+            <input type="text" id="bookName" ng-model="book.name">
+            <br>
+            <br>
+            <label for="isbn">ISBN Number:</label>
+            <input type="text" id="isbn" ng-model="book.isbn">
+            <br>
+            <br>
+            <label for="author">Author Name:</label>
+            <input type="text" id="author" ng-model="book.author">
+            <br>
+            <br>
+            <label for="price">Price:</label>
+            <input type="text" id="price" ng-model="book.price">
+            <br>
+            <br>
+            <label for="publisher">Publisher:</label>
+            <input type="text" id="publisher" ng-model="book.publisher">
+            <br>
+            <br>
+            <button ng-click="formatBookDetails()">Submit</button>
+        </form>
+        <p ng-if="bookSubmitted">{{ bookDetails }}</p>
+    </div>
+    <script>
+        var app = angular.module('bookApp', []);
+
+        app.controller('bookCtrl', function ($scope) {
+            $scope.book = {};
+            $scope.bookSubmitted = false;
+
+            $scope.formatBookDetails = function () {
+                $scope.bookSubmitted = true;
+                $scope.bookDetails = 'The book ' + $scope.book.name +
+                    ' written by ' + $scope.book.author +
+                    ' and published by ' + $scope.book.publisher +
+                    ' under isbn number ' + $scope.book.isbn +
+                    ', costs in Rs ' + $scope.book.price +
+                    ' and is acclaimed internationally.';
+            };
+        });
+    </script>
+</body>
+
+</html>
