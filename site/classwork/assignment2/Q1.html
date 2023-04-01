@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>* Special Chars</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Special Characters</h1>
+    <hr>
+
+    <div id="content" style="font-family:Product Sans">
+        <button onclick="myFunction()">Do it!</button>
+        <div id="output"></div>
+
+        <script>
+            function myFunction() {
+                var text;
+                var name = prompt("What is thy name?");
+                var char = prompt("Type a symbol to border the name with:");
+
+                var border = char.repeat(name.length + 4) + "<br>" + char + " " +
+                    name + " " + char + "<br>" + char.repeat(name.length + 4);
+
+                document
+                    .getElementById("output")
+                    .innerHTML = border;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

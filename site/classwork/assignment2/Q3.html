@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rainbowz</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+
+<body>
+    <h1>VIBGYOR</h1>
+    <hr>
+    <form name="colorBg">
+        Change background color:
+        <input type="button" value="Crimson" onclick="changeBGcolor(value)">
+        <input type="button" value="Tan" onclick="changeBGcolor(value)">
+        <input type="button" value="Teal" onclick="changeBGcolor(value)">
+    </form>
+    <br>
+
+    <form name="textFont">
+        Change text font:
+        <select onchange="changeTextFont(this.value)">
+            <option value="Courier New">Courier New</option>
+            <option value="Segoe UI">Segoe UI</option>
+            <option value="Cursive">Cursive</option>
+            <option value="Arial">Arial</option>
+        </select>
+    </form>
+    <br>
+
+    <form name="textColor">
+        Change text color:
+        <input type="button" value="Yellow" onclick="changeTextColor(value)">
+        <input type="button" value="Black" onclick="changeTextColor(value)">
+        <input type="button" value="White" onclick="changeTextColor(value)">
+    </form>
+
+    <script>
+        function changeBGcolor(newcolor) {
+            document.body.style.backgroundColor = newcolor;
+        }
+
+        function changeTextFont(newfont) {
+            document.body.style.fontFamily = newfont;
+        }
+
+        function changeTextColor(newcolor) {
+            document.body.style.color = newcolor;
+        }
+    </script>
+</body>
+
+</html>
