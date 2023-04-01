@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>one more f'rm</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form validation. Again????</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <form method="get" action="A3-2_Form.html" name="login_form" onsubmit="return validateForm()">
+            <label>Username : <input type="text" name="username" required></label><br>
+            <br>
+            <label>Password : <input type="password" name="password" required></label><br>
+            <br>
+            <p><label>Select a language:</label>
+                <input type="radio" id="Python" name="language" value="Python" required>
+                <label for="Python">Python</label>
+                <input type="radio" id="Cpp" name="language" value="C++" required>
+                <label for="Cpp">C++</label>
+                <input type="radio" id="Java" name="language" value="Java" required>
+                <label for="Java">Java</label><br>
+            </p>
+            <input type="submit" name="submit" value="Submit" class="submit">
+
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var username = document.login_form.username.value;
+            var pass = document.login_form.password.value;
+            var language = document.login_form.language.value;
+
+            var regex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*])/;
+            if (!regex.test(pass)) {
+                alert("Password should contain numbers, alphabets and special character!");
+                return false;
+            }
+
+            if (username.charAt(0).toLowerCase() == "x" && language != "C++") {
+                alert("You can only choose C++!");
+                return false;
+            }
+            return true;
+
+        }
+    </script>
+</body>
+
+</html>
