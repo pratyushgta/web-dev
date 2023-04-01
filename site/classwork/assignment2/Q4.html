@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Inglis</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Woooowvels</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <h4>Input data:</h4>
+        <p>
+            Enter a string: <input id="input" type="text">
+            <br>
+            <button onclick="calculate();">Calculate!</button>
+        </p>
+        <p id="output"></p>
+        <hr>
+
+        <script>
+            function calculate() {
+                var input = document.getElementById("input").value;
+                var vowels = ['a', 'e', 'i', 'o', 'u'];
+                var count = 0;
+
+                for (var i = 0; i < input.length; i++) {
+                    for (var j = 0; j < vowels.length; j++) {
+                        if (input[i] == vowels[j]) {
+                            count++;
+                        }
+                    }
+                }
+
+                document
+                    .getElementById("output")
+                    .innerHTML = "<h4>Number of vowels: " + count + "</h4>";
+            }
+        </script>
+    </div>
+</body>
+
+</html>

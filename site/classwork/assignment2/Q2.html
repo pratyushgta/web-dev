@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chickens</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ol' MacDonald's Farm</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <h4>Input data:</h4>
+        <p>
+            Total number of legs: <input id="total" type="text">
+            <br>
+            <button onclick="calculate();">Calculate!</button>
+        </p>
+
+        <hr>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var totalLegs = document.getElementById("total").value;
+            var pigs = totalLegs / 4;
+            var cows = (totalLegs % 4) / 2;
+            var chickens = (totalLegs % 4) % 2;
+            document
+                .getElementById("output")
+                .innerHTML = "Welcome Mr. MacDonald! Total number of species are: <br> Chickens: "
+                + chickens + "<br> Cows: "
+                + cows + "<br> Pigs: "
+                + pigs;
+        }
+    </script>
+</body>
+
+</html>
