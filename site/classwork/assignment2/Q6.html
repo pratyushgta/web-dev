@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chicken Dinner</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: khaki;
+            margin: 2%;
+            padding: 0;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to lottery</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <p>
+            Enter your lottery number: <input id="num" type="text">
+            <br>
+            <button onclick="calculate();">Check!</button>
+        </p>
+
+        <hr>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var lotteryNum = document.getElementById("num").value;
+
+            if (lotteryNum.match(/[aeiou]\d*[02468][aeiou]/ig)) {
+                document.getElementById("output").innerHTML =
+                    "Woohoo! You won! or did you";
+            }
+
+            else if (lotteryNum.match(/[eio]\d*[13579]/ig)) {
+                document.getElementById("output").innerHTML =
+                    "Hmm. Congo";
+            }
+            else {
+                document.getElementById("output").innerHTML = "Bleh...better luck next time!";
+            }
+        }
+    </script>
+</body>
+
+</html>

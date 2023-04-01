@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>f'rms</title>
+    <meta name="author" content="Pratyush Kumar">
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p button {
+            margin-top: 2%;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Forms validation</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <form method="get" action="A3-2_Form.html" name="login_form" onsubmit="return validateForm()">
+            <label>Username : <input type="text" name="username"></label><br>
+            <br>
+            <label>Password : <input type="password" name="password"></label><br>
+            <br>
+            <label>Re-type Password : <input type="password" name="repassword"></label><br>
+            <br>
+            <label>Your Email : <input type="text" name="email"></label><br>
+            <br>
+            <label>Designation :
+                <select name="designation">
+                    <option value="">--Select Designation--</option>
+                    <option value="Farmer">Farmer</option>
+                    <option value="ProFarmer">Pro Farmer</option>
+                    <option value="Owner">Owner</option>
+                </select>
+            </label><br>
+            <br>
+            <input type="submit" name="submit" value="Submit" class="submit">
+
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var username = document.login_form.username.value;
+            var pass = document.login_form.password.value;
+            var repass = document.login_form.repassword.value;
+            var email = document.login_form.email.value;
+            var designation = document.login_form.designation.value;
+
+            if (username == "" || username == null) {
+                window.alert("Username cannot be blank!");
+                return false;
+            } else if (username.length < 6 || username.length > 12) {
+                window.alert("Username must be 5-12 characters long!");
+                return false;
+            }
+            else if (pass.length < 9 || pass.length > 12) {
+                window.alert("Password must be 8-12 characters long!");
+                return false;
+            } else if (pass != repass) {
+                window.alert("Passwords must be same!");
+                return false;
+            } else if (email == "" || email == null) {
+                window.alert("Email cannot be left blank!");
+                return false;
+            } else if (!validEmail(email)) {
+                window.alert("Please enter a valid source of contating your cosciences. A valid email address perhaps.");
+                return false;
+            } else if (designation == "") {
+                window.alert("Please select a Designation!");
+                return false;
+            }
+            return true;
+        }
+
+        function validEmail(email) {
+            const atIndex = email.indexOf('@');
+            const dotIndex = email.indexOf('.');
+
+            if (atIndex < 0 || dotIndex < 0) {
+                return false;
+            } else if (atIndex > dotIndex) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
