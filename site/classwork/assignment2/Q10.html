@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular Marks</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        .content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Marksheet</h1>
+    <hr>
+    <div id="content" style="font-family:Product Sans">
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject Name</th>
+                    <th>Marks</th>
+                    <th>Grade/Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="subject in subjects">
+                    <td>{{subject.name}}</td>
+                    <td><input type="number" ng-model="subject.marks" min="0" max="100"></td>
+                    <td>{{getGrade(subject.marks)}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h2>Total Marks: {{totalMarks()}}</h2>
+        <h2>Overall Percentage: {{overallPercentage()}}%</h2>
+        <h2>Division: {{getDivision()}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.subjects = [
+                { name: "Maths", marks: 0 },
+                { name: "Science", marks: 0 },
+                { name: "English", marks: 0 },
+                { name: "Social Science", marks: 0 },
+                { name: "Computer Science", marks: 0 }
+            ];
+
+            $scope.totalMarks = function () {
+                var total = 0;
+                for (var i = 0; i < $scope.subjects.length; i++) {
+                    total += $scope.subjects[i].marks;
+                }
+                return total;
+            };
+
+            $scope.overallPercentage = function () {
+                var percentage = ($scope.totalMarks() / ($scope.subjects.length * 100)) * 100;
+                return percentage.toFixed(2);
+            };
+
+            $scope.getDivision = function () {
+                var percentage = $scope.overallPercentage();
+                if (percentage >= 60) {
+                    return "First Division";
+                } else if (percentage >= 45) {
+                    return "Second Division";
+                } else if (percentage >= 33) {
+                    return "Third Division";
+                } else {
+                    return "Fail";
+                }
+            };
+
+            $scope.getGrade = function (marks) {
+                if (marks >= 90) {
+                    return "A+";
+                } else if (marks >= 80) {
+                    return "A";
+                } else if (marks >= 70) {
+                    return "B+";
+                } else if (marks >= 60) {
+                    return "B";
+                } else if (marks >= 50) {
+                    return "C+";
+                } else if (marks >= 40) {
+                    return "C";
+                } else {
+                    return "Fail";
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>
