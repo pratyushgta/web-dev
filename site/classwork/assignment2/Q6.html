@@ -23,8 +23,12 @@
             margin-top: 2%;
         }
 
-        #output {
-            color: white;
+        #winner_output {
+            color: teal;
+        }
+
+        #loser_output {
+            color: tomato;
         }
     </style>
 </head>
@@ -41,7 +45,8 @@
 
         <hr>
 
-        <p id="output"></p>
+        <p id="winner_output"></p>
+        <p id="loser_output"></p>
     </div>
 
     <script>
@@ -49,16 +54,16 @@
             var lotteryNum = document.getElementById("num").value;
 
             if (lotteryNum.match(/[aeiou]\d*[02468][aeiou]/ig)) {
-                document.getElementById("output").innerHTML =
-                    "Woohoo! You won! or did you";
+                document.getElementById("winner_output").innerHTML =
+                    "🎉 Woohoo! You won! or did you";
             }
 
             else if (lotteryNum.match(/[eio]\d*[13579]/ig)) {
-                document.getElementById("output").innerHTML =
-                    "Hmm. Congo";
+                document.getElementById("winner_output").innerHTML =
+                    "🎉 Hmm. So you won i guess. Congo";
             }
             else {
-                document.getElementById("output").innerHTML = "Bleh...better luck next time!";
+                document.getElementById("loser_output").innerHTML = "Bleh...better luck next time!";
             }
         }
     </script>
