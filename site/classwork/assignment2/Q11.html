@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular Bills</title>
+    <meta name="author" content="Pratyush Kumar">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+            margin: 2%;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: coral;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body ng-app="invoiceApp" ng-controller="invoiceCtrl">
+    <h1>Invoice</h1>
+    <hr>
+
+    <div id="content" style="font-family:Product Sans">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td><input type="text" ng-model="product.name"></td>
+                    <td><input type="number" ng-model="product.price"></td>
+                    <td><input type="number" ng-model="product.quantity"></td>
+                    <td>{{product.price * product.quantity | currency}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="right">Total:</td>
+                    <td>{{getTotal() | currency}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="right">GST (18%):</td>
+                    <td>{{getTotal() * 0.18 | currency}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="right"><strong>Grand Total:</strong></td>
+                    <td><strong>{{getTotal() * 1.18 | currency}}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <button ng-click="addProduct()">Add Product</button>
+        <script>
+            var app = angular.module('invoiceApp', []);
+
+            app.controller('invoiceCtrl', function ($scope) {
+                $scope.products = [{
+                    name: '',
+                    price: 0,
+                    quantity: 0
+                }];
+
+                $scope.addProduct = function () {
+                    $scope.products.push({
+                        name: '',
+                        price: 0,
+                        quantity: 0
+                    });
+                };
+
+                $scope.getTotal = function () {
+                    var total = 0;
+                    angular.forEach($scope.products, function (product) {
+                        total += product.price * product.quantity;
+                    });
+                    return total;
+                };
+            });
+        </script>
+</body>
+
+</html>
