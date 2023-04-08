@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>File Operations</title>
+</head>
+
+<body>
+    <button id="create-file-button">Create File</button>
+    <button id="write-file-button" disabled>Write File</button>
+    <button id="rename-file-button" disabled>Rename File</button>
+    <script>
+        const createFileButton = document.getElementById('create-file-button');
+        const writeFileButton = document.getElementById('write-file-button');
+        const renameFileButton = document.getElementById('rename-file-button');
+
+        createFileButton.addEventListener('click', async () => {
+            const response = await fetch('/create-file');
+            const text = await response.text();
+            const fileElement = document.createElement('p');
+            fileElement.textContent = text;
+            document.body.appendChild(fileElement);
+            writeFileButton.disabled = false;
+        });
+
+        writeFileButton.addEventListener('click', async () => {
+            const data = prompt('Enter data to write to file');
+            await fetch('/write-file', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ data })
+            });
+            renameFileButton.disabled = false;
+        });
+
+        renameFileButton.addEventListener('click', async () => {
+            const newName = prompt('Enter new name for file');
+            await fetch('/rename-file', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ newName })
+            });
+            alert('File renamed');
+        });
+    </script>
+</body>
+
+</html>
