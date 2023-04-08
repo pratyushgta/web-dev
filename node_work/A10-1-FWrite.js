@@ -1,4 +1,4 @@
-//Create a new file using the writeFile() method of NODE JS File System Module:
+//Write in a file using the writeFile() method of NODE JS File System Module:
 var fs = require('fs');
 
 fs.writeFile("A10-1-ExampleFile1.txt", "Spartan, lock and load!", function (err) {
