@@ -2,7 +2,7 @@ var http = require("http");
 var url = require("url");
 var fs = require("fs");
 
-//opens any file in the server > usage: localhost:8080/<A10-1.html>------------------------------------------------
+//opens any file in the server > usage: localhost:8080/<A10-1.html>
 http.createServer(function (req, res) {
   var file_url = url.parse(req.url, true);
   var filename = "." + file_url.pathname;
@@ -19,7 +19,7 @@ http.createServer(function (req, res) {
   
 }).listen(8080);
 
-//to demonstrate url module of nodejs------------------------------------------------
+//to demonstrate url module of nodejs
 var url = require('url');
 var adr = 'http://localhost:8080/A10-1.html?year=2077&month=november';
 var p = url.parse(adr, true);
