@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush">
+    <title>Hello!</title>
+    <script src="angular.min.js"></script>
+    <style>
+        .done-true {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <!--PART 1-->
+        <h1>Hello World!</h1>
+        <input type="text" ng-model="name" placeholder="Enter name">
+        <input type="number" ng-model="sal" placeholder="Enter basic pay">
+        <p>Using bind > Hello <span ng-bind="name"></span>! Your salary is {{getSal()}}</p>
+        <p> Using brackerts > Hello {{name}}! Your salary is {{getSal()}}</p>
+        <hr>
+        <!--PART 2-->
+        <h1>Addition example</h1>
+        <p>Sum of two numbers 1 + 2 is {{1+2}}</p>
+        <input type="number" ng-model="a">
+        <input type="number" ng-model="b">
+        <p>Without bind > Their sum is: <span>{{(parseFloat(a)+parseFloat(b))}}</span></p> <!--Not working-->
+        <p>Using bind > Their sum is: <span ng-bind="getSum()"></span></p>
+        <hr>
+        <!--PART 3-->
+        <h1>Working with list</h1>
+        <span>{{remaining()}} of {{todolist.length}}</span> <a href="" ng-click="archive()">archive</a>
+        <ul>
+            <li ng-repeat="todo in todolist">
+                <label>
+                    <input type="checkbox" ng-model="todo.done">
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </label>
+            </li>
+        </ul>
+        <form ng-submit="addTo()">
+            <input type="text" ng-model="addText" size="30" placeholder="Add to list">
+            <input type="submit" value="add">
+        </form>
+        <hr>
+        <!--PART 4-->
+        <h1>Repeater</h1>
+        <table>
+            <tr>
+                <th>Row number</th>
+            </tr>
+            <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">
+                <td>{{i}}</td>
+            </tr>
+        </table>
+        <hr>
+        <!--PART 5-->
+        <h1>Matrices</h1>
+        <table>
+            <tr>
+                <th>Row number</th>
+            </tr>
+            <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">
+                <td ng-repeat="j in [0,1,2,3,4,5,6,7]">{{j}}</td>
+            </tr>
+        </table>
+        <hr>
+        <!--PART 6-->
+        <h1>Patterns</h1>
+        <table>
+            <tr ng-repeat="i in [0,1,2,3,4]">
+                <td ng-repeat="j in [0,1,2,3,4]" ng-if="j<=i">*</td>
+            </tr>
+        </table>
+        <hr>
+        <!--PART 7-->
+        <h1>Image like Counter</h1>
+        <div ng-repeat="i in image">
+            <p><img src="{{i.href}}" alt="nmims image"><span>{{i.likes}}</span><span>{{i.dislikes}}</span></p>
+            <input type="submit" value="like" ng-click="increment_l(i)">
+            <input type="submit" value="dislike" ng-click="increment_d(i)">
+        </div>
+    </div>
+    <hr>
+    <div ng-controller="myCtrl2">
+        <!--PART 8-->
+        <h1>Controller 2</h1>
+        <p>Hello {{name}}!!</p>
+    </div>
+    <hr>
+    <div ng-controller="myCtrl3 as ctrl">
+        <!--PART 9-->
+        <h1>Controller 3</h1>
+        <p>Hello {{ctrl.name}}!!</p>
+    </div>
+    <hr>
+    <div ng-controller="myCtrl">
+        <!--PART 10-->
+        <h1>Controller Inheritance</h1>
+        <p>Hello {{name}}!!</p>
+        <div ng-controller="myCtrl2">
+            <p>Hello {{name}}!!</p>
+        </div>
+    </div>
+
+
+    <script src=x1.js></script>
+</body>
+
+</html>

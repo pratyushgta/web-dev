@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <Script src="angular.min.js"></Script>
+    <title>Angular Inheritance</title>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <p>DETAILS OF <strong>{{name}}</strong></p>
+        <div ng-controller="myCtrlInner">
+            <p>{{name}} earns {{sal}} for the post of {{post}}</p>
+            <div ng-controller="salary">
+                <p>{{name}} gets a net pay of:
+                    <br>
+                    Taxes: {{getTaxes()}}
+                    <br>
+                    Net: {{net()}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", ["$scope", function ($scope) {
+            $scope.name = "Hmm";
+        }]);
+
+        app.controller("myCtrlInner", ["$scope", function ($scope) {
+            $scope.sal = 7777;
+            $scope.post = "Sales";
+        }]);
+
+        app.controller("salary", ["$scope", function ($scope) {
+            $scope.getTaxes = function () {
+                return $scope.sal * 30 / 100;
+            };
+
+            $scope.net = function () {
+                return $scope.sal - $scope.getTaxes();
+            };
+        }]);
+    </script>
+
+</body>
+
+</html>
