@@ -20,14 +20,16 @@
             Employee No.: <span>{{empno}}</span>
         </div>
         <div>
-            Employee Name: <span>{{name}}</span>
+            <!--Employee Name: <span>{{name | uppercase}}</span>-->
+            Employee Name: <span>{{upperName}}</span>
         </div>
         <div>
-            Employee Salary: <span>{{sal}}</span>
-            <span ng-if="sal >=10000">Oh hoy!</span>
+            Employee Salary: <span>{{sal | number:2}}</span>
+            <span ng-if="sal >= 8000">Oh hoy!</span>
         </div>
         <div>
-            Employee Dept no. <span>{{deptno}}</span>
+            Employee Dept no. <span>{{deptno | currency:$:2}}</span>
+            <!--FOR DATE: date: "shortDate" or longDate or mediumDate-->
         </div>
 
         <script src="x6.js"></script>

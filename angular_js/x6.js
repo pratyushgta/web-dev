@@ -1,11 +1,12 @@
 var app = angular.module("myApp",[]);
-app.controller("myCtrl",["$scope", 'empService',function($scope,empService){
+app.controller("myCtrl",["$scope", 'empService', "$filter",function($scope,empService,$filter){
     $scope.doSearch = function(){
         empService.findEmployeeByID($scope.searchEmpno,function(r){
             $scope.empno = r.empno;
             $scope.name = r.name;
             $scope.sal = r.sal;
             $scope.deptno = r.deptno;
+            $scope.upperName = $filter("uppercase")(r.name);
         });
     };
 }]);

@@ -34,7 +34,7 @@
         <h1>Working with list</h1>
         <span>{{remaining()}} of {{todolist.length}}</span> <a href="" ng-click="archive()">archive</a>
         <ul>
-            <li ng-repeat="todo in todolist">
+            <li ng-repeat="todo in todolist" >
                 <label>
                     <input type="checkbox" ng-model="todo.done">
                     <span class="done-{{todo.done}}">{{todo.text}}</span>
