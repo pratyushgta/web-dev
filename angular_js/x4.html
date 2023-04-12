@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush">
+    <script src="angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl1">
+        Value of a is: <span ng-bind="a"></span> <br>
+        Value of b is: <span ng-bind="b"></span>
+        <hr>
+        <div ng-init="sum2 = 0">Sum = {{sum2}} </div><br>
+        <button ng-click="doSum()">Sum</button> <br>
+    </div>
+    <script src="x4.js"></script>
+</body>
+
+</html>

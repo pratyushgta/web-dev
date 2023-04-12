@@ -7,9 +7,31 @@
     <script src="angular.min.js"></script>
 </head>
 
-<body>
-    
-    <script></script>
+<body ng-app="myApp">
+    <div ng-controller="myCtrl1">
+        <div>
+            <h1>One way binding</h1>
+            Value of a is: {{a}} <br>
+            Value of b is: {{b}}
+        </div>
+        <hr>
+        <h1>Two way binding</h1>
+        Value of a is: <span ng-bind="a"></span> <br>
+        Value of b is: <span ng-bind="b"></span>
+        <hr>
+        <div ng-init="sum = 0">Sum = {{sum}} </div><br>
+        <button ng-click="doDoubleSum()">Sum</button> <br>
+        <hr>
+        <h1>One time binding</h1>
+        Value of a fetched during first time execution of scope: {{::a}}
+        <hr>
+        <h1>Two way binding example</h1>
+        Value of a is: {{a}}, but you can change <input type="text" ng-model="a"> <br>
+        Value of b is: {{b}}, , but you can change <input type="text" ng-model="b">
+        <div ng-init="sum2 = 0">Sum = {{sum2}} </div><br>
+        <button ng-click="doSum()">Sum</button> <br>
+    </div>
+    <script src="x3.js"></script>
 </body>
 
 </html>

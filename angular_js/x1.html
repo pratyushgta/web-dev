@@ -80,7 +80,8 @@
         <h1>Image like Counter</h1>
         <div ng-repeat="i in image">
             <p><img src="{{i.href}}" alt="nmims image"><span>{{i.likes}}</span><span>{{i.dislikes}}</span></p>
-            <input type="submit" value="like" ng-click="increment_l(i)">
+            <!--<input type="submit" value="like" ng-click="increment_l(i)">-->
+            <button ng-click="increment_l(i)">Like</button>
             <input type="submit" value="dislike" ng-click="increment_d(i)">
         </div>
     </div>

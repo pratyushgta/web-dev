@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush">
+    <script src="angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <form>
+            <label>Enter employee no.:</label>
+            <input type="number" ng-model="searchEmpno">
+            <button ng-click="doSearch()">Search</button>
+        </form>
+        <br>
+        <hr>
+        <div>
+            Employee No.: <span>{{empno}}</span>
+        </div>
+        <div>
+            Employee Name: <span>{{name}}</span>
+        </div>
+        <div>
+            Employee Salary: <span>{{sal}}</span>
+            <span ng-if="sal >=10000">Oh hoy!</span>
+        </div>
+        <div>
+            Employee Dept no. <span>{{deptno}}</span>
+        </div>
+
+        <script src="x6.js"></script>
+</body>
+
+</html>
