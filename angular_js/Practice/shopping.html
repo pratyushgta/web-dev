@@ -40,7 +40,7 @@
         <hr>
         <div class="cart_content">
             <h3>Your cart</h3>
-            <p ng-show="cart.length<1">Add items now!</p>
+            <p ng-hide="cart.length>0">Add items now!</p>
             <table ng-show="cart.length>0">
                 <tr>
                     <th>Name</th>
