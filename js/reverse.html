@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h4>Input</h4>
+    Input a number: <input type="number" id="a">
+    <button onclick="reverse()">Click</button>
+    <p id="output"></p>
+
+    Input a string: <input type="text" id="b">
+    <button onclick="uppercase()">Click</button>
+    <p id="output2"></p>
+
+    Enter 5 numbers: <input type="text" id="c">
+    <button onclick="largest()">Click</button>
+    <p id="output3"></p>
+
+    <h4>Pattern</h4>
+    <button onclick="pattern()">Click</button>
+    <div id="output4"></div>
+    <script>
+        function reverse() {
+            var a = document.getElementById("a").value;
+            var arr = a.split("");
+            var reverse="";
+            for(var i=arr.length-1;i>=0;i--){
+                reverse+=arr[i];
+            }
+
+            document.getElementById("output").innerHTML = reverse;
+        }
+
+        function uppercase(){
+            var b = document.getElementById("b").value;
+            var arr = b.split(" ");
+            var capitalize="";
+            for(var i=0;i<arr.length;i++){
+                let word = arr[i];
+                capitalize+=word[0].toUpperCase()+word.substring(1)+" ";
+            }
+
+            document.getElementById("output2").innerHTML = capitalize;
+        }
+
+        function largest(){
+            var c = document.getElementById("c").value;
+            var arr = c.split(" ");
+            var max = parseFloat(arr[0]);
+            for(var i=0;i<arr.length;i++){
+                if(parseFloat(arr[i]) > max){
+                    max = parseFloat(arr[i]);
+                }
+            }
+
+            window.alert("Largest number is: " + max);
+        }
+
+        function pattern(){
+            pattern="";
+            for(var i=0;i<5;i++){
+                for(var j=0;j<i;j++){
+                    pattern+="* "
+                }
+                pattern+="<br>"
+            }
+
+            document.getElementById("output4").innerHTML=pattern;
+        }
+
+    </script>
+</body>
+
+</html>

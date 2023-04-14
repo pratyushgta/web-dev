@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <h3>Average Marks</h3>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>
+            <tr ng-repeat="i in list">
+                <td>{{i.name}}</td>
+                <td>{{i.marks}}</td>
+            </tr>
+        </table>
+        <label>Name: <input type="text" ng-model="n"></label>
+        <label>marks: <input type="number" ng-model="m"></label>
+        <button ng-click="add()">Add!</button>
+        
+        <script src="marks.js"></script>
+    </body>
+</html>
+
