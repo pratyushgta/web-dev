@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px black solid;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <!--NOTE!!    
+$untouched: This is a boolean property that is true if the user has not yet interacted with the control (e.g. clicked or typed into an input field), otherwise false.
+
+$touched: This is a boolean property that is true if the user has interacted with the control, otherwise false.
+
+$pristine: This is a boolean property that is true if the user has not yet modified the value of the control (e.g. typed into an input field), otherwise false.
+
+$dirty: This is a boolean property that is true if the user has modified the value of the control, otherwise false.
+    -->
+
+
+    <h1>Form Validation</h1>
+    <hr>
+    <h4>Fill here:</h4>
+    <form name="myForm" ng-submit="submitForm()">
+        <label>First Name</label>
+        <input type="text" ng-model="fname" name="fname" ng-minlength="2" required>
+        <span style="color: yellow;" ng-show="myForm.fname.$invalid && myForm.fname.$dirty">Name should be atleast 2
+            char long!</span>
+        <span style="color: red;" ng-show="myForm.fname.$touched && myForm.fname.$pristine">You cannot leave this
+            blank!</span>
+
+        <label>Last Name</label>
+        <input type="text" ng-model="lname" name="lname" ng-maxlength="10" required>
+        <span style="color: red;" ng-show="myForm.lname.$error.required && myForm.lname.$touched">Last name is
+            required!</span>
+        <br>
+
+        <label>Username: </label>
+        <input type="text" ng-pattern="/^[A-Z][A-Za-z]*$/" name="uname" ng-model="uname" required>
+        <span style="color: yellow;" ng-show="myForm.uname.$error.pattern && myForm.uname.$dirty">Username should start
+            with a capital letter!</span>
+        <span style="color: red;" ng-show="myForm.uname.$error.required && myForm.uname.$touched">Username is
+            required!</span>
+        <br>
+
+        <label>Password: </label>
+        <input type="password" name="pass" ng-model="pass" ng-pattern="/^[A-Za-z0-9]{5,15}$/" required>
+        <span style="color: cyan;" ng-show="myForm.pass.$pristine">Make sure to have a secure password!</span>
+        <span style="color: teal;" ng-show="myForm.pass.$untouched">Password should be atleast 5-15 char long!</span>
+        <span style="color: yellow;" ng-show="myForm.pass.$error.pattern && myForm.pass.$dirty">Password should be 5-15
+            char long and must be alphanumeric!</span>
+        <span style="color: red;" ng-show="myForm.pass.$error.required && myForm.pass.$touched">Password is
+            required!</span>
+
+        <br>
+
+        <label>Email:</label>
+        <input type="email" name="email" ng-model="email" ng-pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/">
+        <!--\w = (a-z, A-Z, 0-9) and underscores (_) -->
+        <span style="color: yellow;" ng-show="myForm.email.$error.pattern && myForm.email.$dirty">Invalid format!</span>
+        <span style="color: red;" ng-show="myForm.email.$error.required && myForm.email.$touched">Email is
+            required!</span>
+        <br>
+
+        <label>[CHECKBOX] Choose one:</label>
+        <input type="checkbox" name="cbox1" ng-model="cbox1" ng-init="cbox1=true" required>Option 1
+        <input type="checkbox" name="cbox2" ng-model="cbox2" required>Option 2<br>
+        <span ng-show="myForm.cbox1.$error.required && myForm.cbox2.$error.required">You are required to choose a
+            checkbox!</span>
+
+        <br>
+
+        <label>[RADIO] Choose one:</label>
+        <input type="radio" name="rbox1" ng-model="rbox1" value="Option 1" required>Option 1
+        <input type="radio" name="rbox2" ng-model="rbox1" value="Option 2" required>Option 2<br>
+        <span ng-show="myForm.$submitted && myForm.$error.required">You are required to choose an option!</span>
+        <br>
+
+        <label>[SELECT MENU] Select one:</label>
+        <select name="menu" ng-model="menu" ng-options="item.value as item.label for item in dropdownlist"
+            ng-required="true">
+            <option value="">Select</option>
+        </select>
+        <span ng-show="myForm.menu.$error.required">You are required to select an option!</span>
+
+        <br>
+
+        <label>Phone number:</label>
+        <input type="number" name="pno" ng-model="pno" ng-pattern="/^[0-9]{10}$/">
+        <br>
+
+        <label>PAN Validation:</label>
+        <input type="text" name="pan" ng-model="pan" ng-pattern="/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/">
+        <br>
+        <button ng-disabled="myForm.$invalid" ng-click="submit()">Submit</button>
+    </form>
+
+    <hr>
+    <h4>Verify Here</h4>
+    <p>First name: {{fullname()}}</p>
+    <p>Phone: {{pno}}</p>
+    <p>PAN: <span ng-bind="pan"></span></p>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", ["$scope", function ($scope) {
+            $scope.dropdownlist = [
+                { value: "Apples", label: "Apples" },
+                { value: "Bananas", label: "Bananas" }
+            ];
+            $scope.fullname = function () {
+                if ($scope.fname == null || $scope.lname == null)
+                    return "Null!"
+                else
+                    return $scope.fname + " " + $scope.lname;
+            }
+
+            $scope.submitForm = function(){
+                if (!$scope.form.$valid) {
+                    alert(":/ hmm something's wrong you see...")
+                }
+                $window.location.href = 'A8-2_Form.html'
+            };
+        }]);
+    </script>
+</body>
+
+</html>
