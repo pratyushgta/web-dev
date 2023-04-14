@@ -52,7 +52,7 @@ function validate(){
         return false;
     }
 
-    if(!cbox1.checked && !cbox2.checked){
+    if(!cbox1.checked || !cbox2.checked){
         window.alert("Please check a checkbox!");
         return false;
     }
@@ -62,11 +62,14 @@ function validate(){
         return false;
     }
 
-    if(radio1.checked){
+    radio1.addEventListener('click', function() {
         radio2.disabled = true;
-    } else if(radio2.checked){
+    });
+
+    radio2.addEventListener('click', function() {
         radio1.disabled = true;
-    }
+    });
+
 
     if (menu.value == "Select") {
         window.alert("Please select an option from the menu.");
