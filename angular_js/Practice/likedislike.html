@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush">
+    <script src="angular.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        table,th,td{
+            border: 1px black solid;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Like.Dislike</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Like</th>
+            <th>Dislike</th>
+        </tr>
+        <tr ng-repeat="i in list">
+            <td>{{i.name}}</td>
+            <td>{{i.like}} <button ng-click="increment(i)">Like</button></td>
+            <td>{{i.dislike}} <button ng-click="decrement(i)">Dislike</button></td>
+        </tr>
+    </table>
+
+    <script src="likedislike.js"></script>
+</body>
+
+</html>
