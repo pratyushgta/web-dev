@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratyush">
+    <script></script>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS Form Validation</h1>
+    <hr>
+
+    <form name="myForm" onsubmit="return validate()">
+        <label>First Name</label>
+        <input type="text" id="fname" size="10" required>
+        <span id="fname_error" style="color: red;"></span>
+
+
+        <label>Last Name</label>
+        <input type="text" id="lname">
+        <br>
+
+        <label>Username</label>
+        <input type="text" id="uname">
+        <br>
+
+        <label>Password</label>
+        <input type="text" id="pass" required>
+
+        <label>Retype Password</label>
+        <input type="text" id="repass" required>
+        <br>
+
+        <label>Email</label>
+        <input type="text" id="email" required>
+        <br>
+        
+        <label>[CHECKBOX] Choose one:</label>
+        <input type="checkbox" id="cbox1" value="cbox1" checked> Option 1
+        <input type="checkbox" id="cbox2" value="cbox2"> Option 2
+        <br>
+
+        <label>[RADIO] Choose one:</label>
+        <input type="radio" id="radio1" value="Option 1" name="radio"> Option 1
+        <input type="radio" id="radio2" value="Option 2" name="radio"> Option 2
+        <br>
+
+        <label>[SELECT MENU] Select one:</label>
+        <select type="text" value="" id="menu">
+            <option>Select</option>
+            <option>Apples</option>
+            <option>Bananas</option>
+        </select>
+
+        <br>
+        <label>Comments:</label>
+        <textarea rows="10" cols="10"></textarea>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="JS_form.js"></script>
+</body>
+
+</html>
