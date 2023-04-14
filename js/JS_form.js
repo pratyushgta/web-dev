@@ -9,6 +9,7 @@ function validate(){
     var radio1 = document.getElementById("radio1");
     var radio2 = document.getElementById("radio2");
     var menu = document.getElementById("menu");
+    var email = document.getElementById("email");
 
 
     if(fname.length < 2){
@@ -49,6 +50,11 @@ function validate(){
 
     if(pass!=repass){
         window.alert("Passwords must be same!");
+        return false;
+    }
+
+    if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)){
+        window.alert("Enter valid email address!!")
         return false;
     }
 
